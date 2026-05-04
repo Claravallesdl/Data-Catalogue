@@ -1,19 +1,20 @@
 import React, { useState, useMemo, useRef } from 'react';
-import { Header } from '../components/Header';
-import { Sidebar } from '../components/Sidebar';
-import { SummaryBox } from '../components/SummaryBox';
-import { SunburstChart } from '../components/SunburstChart';
-import { DataTable } from '../components/DataTable';
-import { FilterTags } from '../components/FilterTags';
-import { ProfilePage } from '../components/ProfilePage';
-import { SettingsPage } from '../components/SettingsPage';
-import { RequestsPage } from '../components/RequestsPage';
+import { Header } from './components/Header/Header';
+import { Sidebar } from './components/Sidebar/Sidebar';
+import { SummaryBox } from './components/SummaryBox/SummaryBox';
+import { SunburstChart } from './components/SunburstChart/SunburstChart';
+import { DataTable } from './components/DataTable/DataTable';
+import { FilterTags } from './components/FilterTags/FilterTags';
+import { ProfilePage } from './components/ProfilePage/ProfilePage';
+import { SettingsPage } from './components/SettingsPage/SettingsPage';
+import { RequestsPage } from './components/RequestsPage/RequestsPage';
 
-import { HowItWorksPage } from '../components/HowItWorksPage';
-import { LandingPage } from '../components/LandingPage';
-import { DataRequestPage, RequestDraft } from '../components/DataRequestPage';
-import { PetitionDetailModal } from '../components/PetitionDetailModal';
-import { DataModelViewer } from '../components/DataModelViewer';
+import { HowItWorksPage } from './components/HowItWorksPage/HowItWorksPage';
+import { LandingPage } from './components/LandingPage/LandingPage';
+import { DataRequestPage, RequestDraft } from './components/DataRequestPage/DataRequestPage';
+import { PetitionDetailModal } from './components/PetitionDetailModal/PetitionDetailModal';
+import { DataModelViewer } from './components/DataModelViewer/DataModelViewer';
+import './App.css';
 import { MyPetition, DataRequest, RequestStatus } from './types';
 import { FilterState, ViewMode, HierarchyField, SavedQuery, HierarchyNode } from './types';
 import * as d3 from 'd3';
@@ -21,7 +22,7 @@ import { MOCK_RECORDS, MOCK_SAVED_QUERIES, MOCK_INCOMING_REQUESTS, MOCK_MY_PETIT
 import { 
   LayoutGrid, Table as TableIcon, Layers, Info, 
   AlertCircle, Database, Bookmark, Check, ArrowRight, X, Save, Filter,
-  FileText, Dna, ClipboardList, Pill, Search
+  FileText, Dna, ClipboardList, Pill, Search, Microscope, Image as ImageIcon
 } from 'lucide-react';
 
 export interface AppConfig {
@@ -57,9 +58,11 @@ const App: React.FC = () => {
     treatments: [],
     omicsData: [],
     molecularInfo: [],
+    images: [],
     treatmentLogic: 'any',
     omicsLogic: 'any',
-    molecularLogic: 'any'
+    molecularLogic: 'any',
+    imagesLogic: 'any'
   });
 
   const [viewMode, setViewMode] = useState<ViewMode>(ViewMode.Sunburst);
@@ -113,6 +116,14 @@ const App: React.FC = () => {
           return filters.molecularInfo.some(m => record.molecularInfo.includes(m));
         }
       })();
+
+      const matchImages = filters.images.length === 0 || (() => {
+        if (filters.imagesLogic === 'all') {
+          return filters.images.every(idx => record.images.includes(idx));
+        } else {
+          return filters.images.some(idx => record.images.includes(idx));
+        }
+      })();
       
       const matchTreatment = filters.treatments.length === 0 || (() => {
         const patientTreatments = record.treatment.split(',').map(t => t.trim());
@@ -123,7 +134,7 @@ const App: React.FC = () => {
         }
       })();
 
-      return matchTumor && matchSex && matchAge && matchSite && matchType && matchTreatment && matchOmics && matchMolecular;
+      return matchTumor && matchSex && matchAge && matchSite && matchType && matchTreatment && matchOmics && matchMolecular && matchImages;
     });
   }, [filters]);
 
@@ -141,9 +152,11 @@ const App: React.FC = () => {
       treatments: [],
       omicsData: [],
       molecularInfo: [],
+      images: [],
       treatmentLogic: 'any',
       omicsLogic: 'any',
-      molecularLogic: 'any'
+      molecularLogic: 'any',
+      imagesLogic: 'any'
     });
     setActiveHierarchy(['primaryTumor', 'treatment']);
   };
@@ -341,7 +354,9 @@ const App: React.FC = () => {
     { label: 'Biopsy Site', value: 'biopsySite' },
     { label: 'Biopsy Origin', value: 'type' },
     { label: 'Treatment', value: 'treatment' },
-    { label: 'Omics Data', value: 'omicsData' }
+    { label: 'Omics Data', value: 'omicsData' },
+    { label: 'Molecular Info', value: 'molecularInfo' },
+    { label: 'Images', value: 'images' }
   ];
 
     const activeFilterEntries = Object.entries(filters).filter(([, val]) => Array.isArray(val) && val.length > 0);
@@ -351,11 +366,13 @@ const App: React.FC = () => {
     { id: 'OC', icon: FileText, name: 'OncoClinical', desc: 'Clinical data curated by Odyssey.', patientCount: 20915 },
     { id: 'GC', icon: Pill, name: 'OncoPharma', desc: 'Treatment history for oncology patients at Vall d\'Hebron (doses, drug types, etc.).', patientCount: 40353 },
     { id: 'TC', icon: ClipboardList, name: 'Clinical Trials', desc: 'Trial metadata (inclusion criteria, etc.) and patient enrollment tracking status.', patientCount: 20396 },
-    { id: 'PS', icon: Dna, name: 'Prescreening', desc: 'Molecular test results from patients in the Prescreening project.', patientCount: 18133 }
+    { id: 'PS', icon: Dna, name: 'Prescreening', desc: 'Molecular test results from patients in the Prescreening project.', patientCount: 18133 },
+    { id: 'OM', icon: Microscope, name: 'Omics data', desc: 'Genomic and transcriptomic data.', patientCount: 12450 },
+    { id: 'IM', icon: ImageIcon, name: 'Images', desc: 'Radiology and pathology images linked to clinical cases.', patientCount: 8900 }
   ];
 
   return (
-    <div className={`h-screen bg-slate-50 flex flex-col overflow-hidden ${appConfig.highDensity ? 'text-xs' : ''}`}>
+    <div className={`h-screen bg-app-main flex flex-col overflow-hidden font-inter ${appConfig.highDensity ? 'text-xs' : ''}`}>
       <Header activeTab={activeTab} onTabChange={setActiveTab} />
       
       <div className="flex flex-1 pt-16 overflow-hidden">
@@ -370,36 +387,17 @@ const App: React.FC = () => {
               autoExpand={appConfig.autoExpand}
             />
 
-            <main className="ml-72 flex-1 flex flex-col overflow-hidden bg-white relative">
+            <main className="ml-72 flex-1 flex flex-col overflow-hidden bg-surface relative">
               <div className="flex-1 flex flex-col overflow-hidden relative">
-                {/* Top Action Bar: Filters & Buttons */}
-                <div className="flex-shrink-0 flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/30">
-                  <FilterTags filters={filters} onRemove={(key, val) => {
-                    setFilters(prev => {
-                      const currentVal = prev[key as keyof FilterState];
-                      if (!Array.isArray(currentVal)) return prev;
-                      return { ...prev, [key as keyof FilterState]: currentVal.filter(v => v !== val) };
-                    });
-                  }} />
-                  <div className="flex items-center gap-2">
-                    <button onClick={openSaveModal} className="group flex items-center gap-2 px-4 py-1.5 bg-white border border-slate-200 rounded-lg text-[10px] font-black text-slate-600 hover:text-blue-600 hover:border-blue-200 transition-all shadow-sm uppercase tracking-wider">
-                      <Bookmark size={12} className="group-hover:scale-110 transition-transform" /> Save Query
-                    </button>
-                    <button onClick={() => { setPreviousTab('catalogue'); setActiveTab('request-data'); }} className="flex items-center gap-2 px-4 py-1.5 bg-blue-600 rounded-lg text-[10px] font-black text-white hover:bg-blue-700 transition-all shadow-md shadow-blue-200 uppercase tracking-wider">
-                      <FileText size={12} /> Request Data
-                    </button>
-                  </div>
-                </div>
-
                 {/* Hierarchy Selector */}
-                <div className={`flex-shrink-0 border-b border-slate-50 flex items-center justify-between gap-6 ${appConfig.highDensity ? 'px-4 py-2' : 'px-6 py-3'}`}>
+                <div className={`flex-shrink-0 border-b border-subtle flex items-center justify-between gap-6 ${appConfig.highDensity ? 'px-4 py-2' : 'px-6 py-3'}`}>
                   <div className="flex items-center gap-4 flex-1 overflow-hidden">
                     <div className="flex items-center gap-3 flex-shrink-0">
-                      <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-1.5">
-                        <Layers size={12} /> Hierarchy <span className="text-slate-300">({activeHierarchy.length}/4)</span>:
+                      <span className="text-[9px] font-black text-muted uppercase tracking-[0.2em] flex items-center gap-1.5">
+                        <Layers size={12} /> Hierarchy <span className="text-muted/60">({activeHierarchy.length}/4)</span>:
                       </span>
                       {atLimit && (
-                        <div className="flex items-center gap-1 text-[8px] font-bold text-amber-500 uppercase tracking-tight animate-pulse">
+                        <div className="flex items-center gap-1 text-[8px] font-bold text-warning uppercase tracking-tight animate-pulse">
                           <AlertCircle size={10} />
                         </div>
                       )}
@@ -416,10 +414,10 @@ const App: React.FC = () => {
                             onClick={() => toggleHierarchyField(option.value)}
                             className={`px-3 py-1.5 rounded-lg text-[9px] font-black transition-all border uppercase tracking-tight 
                               ${isActive 
-                                ? 'bg-blue-600 border-blue-600 text-white shadow-md' 
+                                ? 'badge-primary border-brand shadow-md' 
                                 : disabled 
-                                  ? 'bg-slate-50 border-slate-100 text-slate-300 cursor-not-allowed' 
-                                  : 'bg-white border-slate-200 text-slate-500 hover:border-blue-300 hover:text-blue-500'}`}
+                                  ? 'bg-surface-muted border-subtle text-muted cursor-not-allowed' 
+                                  : 'bg-surface border-strong text-main hover:border-brand hover:text-brand'}`}
                           >
                             {option.label}
                           </button>
@@ -428,12 +426,31 @@ const App: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-shrink-0 bg-slate-100 p-1 rounded-xl border border-slate-200/50 shadow-inner h-fit">
-                    <button onClick={() => setViewMode(ViewMode.Sunburst)} className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-[10px] font-black transition-all uppercase tracking-tight ${viewMode === ViewMode.Sunburst ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+                  <div className="flex flex-shrink-0 bg-surface-muted p-1 rounded-xl border border-strong shadow-inner h-fit">
+                    <button onClick={() => setViewMode(ViewMode.Sunburst)} className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-[10px] font-black transition-all uppercase tracking-tight ${viewMode === ViewMode.Sunburst ? 'bg-surface text-brand shadow-sm' : 'text-muted hover:text-main'}`}>
                       <LayoutGrid size={13} /> Sunburst
                     </button>
-                    <button onClick={() => setViewMode(ViewMode.Table)} className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-[10px] font-black transition-all uppercase tracking-tight ${viewMode === ViewMode.Table ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+                    <button onClick={() => setViewMode(ViewMode.Table)} className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-[10px] font-black transition-all uppercase tracking-tight ${viewMode === ViewMode.Table ? 'bg-surface text-brand shadow-sm' : 'text-muted hover:text-main'}`}>
                       <TableIcon size={13} /> Dataset
+                    </button>
+                  </div>
+                </div>
+
+                {/* Top Action Bar: Filters & Buttons */}
+                <div className="flex-shrink-0 flex items-center justify-between px-6 py-4 border-b border-subtle bg-surface-muted">
+                  <FilterTags filters={filters} onRemove={(key, val) => {
+                    setFilters(prev => {
+                      const currentVal = prev[key as keyof FilterState];
+                      if (!Array.isArray(currentVal)) return prev;
+                      return { ...prev, [key as keyof FilterState]: currentVal.filter(v => v !== val) };
+                    });
+                  }} />
+                  <div className="flex items-center gap-2">
+                    <button onClick={openSaveModal} className="group flex items-center gap-2 px-4 py-1.5 btn-ghost rounded-lg text-[10px] font-black shadow-sm uppercase tracking-wider">
+                      <Bookmark size={12} className="group-hover:scale-110 transition-transform" /> Save Query
+                    </button>
+                    <button onClick={() => { setPreviousTab('catalogue'); setActiveTab('request-data'); }} className="flex items-center gap-2 px-4 py-1.5 btn-primary rounded-lg text-[10px] font-black transition-all shadow-md uppercase tracking-wider">
+                      <FileText size={12} /> Request Data
                     </button>
                   </div>
                 </div>
@@ -454,10 +471,10 @@ const App: React.FC = () => {
                     {viewMode === ViewMode.Table && <DataTable data={filteredData} />}
                   </div>
 
-                  <div className={`${appConfig.highDensity ? 'w-56' : 'w-64'} flex-shrink-0 border-l border-slate-50 bg-slate-50/10 p-5 flex flex-col gap-4`}>
+                  <div className={`${appConfig.highDensity ? 'w-56' : 'w-64'} flex-shrink-0 border-l border-subtle bg-surface-muted/10 p-5 flex flex-col gap-4`}>
                     <div className="flex items-center gap-2 mb-1 px-1">
-                      <Info size={14} className="text-blue-500" />
-                      <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Cohort Insights</span>
+                      <Info size={14} className="text-brand" />
+                      <span className="text-[10px] font-black text-muted uppercase tracking-[0.2em]">Cohort Insights</span>
                     </div>
                     <SummaryBox 
                       allRecords={MOCK_RECORDS} 
@@ -474,100 +491,88 @@ const App: React.FC = () => {
         )}
 
         {activeTab === 'lake' && (
-          <main className="flex-1 overflow-y-auto bg-slate-50 p-6">
+          <main className="flex-1 overflow-y-auto bg-app-main p-6">
             <div className="max-w-7xl mx-auto flex flex-col gap-6 pb-8">
               
               {/* Unified VHIO-LAKE Information Box */}
-              <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 relative">
+              <div className="bg-surface-dark rounded-2xl overflow-hidden shadow-2xl border border-dark-subtle relative">
                 {/* Background Decoration */}
                 <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none scale-150 translate-x-1/4 -translate-y-1/4">
-                  <Database size={200} strokeWidth={0.5} className="text-white" />
+                  <Database size={200} strokeWidth={0.5} className="text-white-pure" />
                 </div>
                 
-                <div className="p-8 relative z-10">
+                <div className="py-6 px-8 relative z-10">
                   {/* Header */}
-                  <div className="space-y-6 mb-8">
+                  <div className="space-y-4 mb-4">
                     <div className="flex items-center justify-between">
-                      <h1 className="text-4xl font-black uppercase tracking-tight text-white italic">VHIO-LAKE</h1>
+                      <h1 className="text-3xl font-bold uppercase tracking-tight text-white-pure italic">VHIO-LAKE</h1>
                       <div className="flex gap-10">
                         <div className="flex flex-col items-end">
-                          <span className="text-2xl font-black text-white">{totalUniquePatients.toLocaleString()}</span>
-                          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Total Patients</span>
+                          <span className="text-xl font-black text-white-pure">{totalUniquePatients.toLocaleString()}</span>
+                          <span className="text-[10px] font-bold text-dark-muted uppercase tracking-widest">Total Patients</span>
                         </div>
                         <div className="flex flex-col items-end">
-                          <span className="text-2xl font-black text-blue-400">{dbs.length}</span>
-                          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Data Sources</span>
+                          <span className="text-xl font-black text-brand">{dbs.length}</span>
+                          <span className="text-[10px] font-bold text-dark-muted uppercase tracking-widest">Data Sources</span>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="space-y-5 w-full">
-                      <div className="space-y-3">
-                        <p className="text-[15px]  text-white leading-relaxed">
-                          VHIO-LAKE is a datalake consisting of four complementary databases: OncoClinical, OncoPharma, Clinical Trials, and Prescreening.
+                    <div className="space-y-3 w-full">
+                      <div className="space-y-2">
+                        <p className="text-[14px] text-white-pure leading-relaxed">
+                          VHIO-LAKE is a datalake consisting of six complementary databases: OncoClinical, OncoPharma, Clinical Trials, Prescreening, Omics data, and Images.
                         </p>
-                        <p className="text-[15px] text-white leading-relaxed">
-                          These systems are linked to provide a comprehensive view of the patient. 
-                          While patients may appear in one or several of these databases, the platform 
-                          allows us to connect their clinical, pharmacological, and molecular data into a single, cohesive profile.
+                        <p className="text-[14px] text-white-pure leading-relaxed opacity-80">
+                          These systems are linked to provide a comprehensive view of the patient, connecting clinical, pharmacological, and molecular data.
                         </p>
                       </div>
                       <button 
                         onClick={() => setActiveTab('catalogue')}
-                        className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-white transition-colors group px-4 py-2 border border-slate-800 rounded-lg bg-slate-800/50 hover:bg-slate-800 shadow-xl"
+                        className="inline-flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-dark-muted hover:text-white-pure transition-colors group px-3 py-1.5 border border-dark-subtle bg-dark-hover/50 hover:bg-dark-hover shadow-xl"
                       >
-                        <Search size={14} className="group-hover:text-blue-400 transition-colors" />
+                        <Search size={12} className="group-hover:text-brand transition-colors" />
                         Interactive Exploration
                       </button>
                     </div>
                   </div>
 
                   {/* Databases Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                     {dbs.map((db, idx) => {
-                      const colors = [
-                        'border-blue-500/30 bg-blue-500/5 hover:bg-blue-500/10 text-blue-400',
-                        'border-rose-500/30 bg-rose-500/5 hover:bg-rose-500/10 text-rose-400',
-                        'border-amber-500/30 bg-amber-500/5 hover:bg-amber-500/10 text-amber-400',
-                        'border-emerald-500/30 bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-400'
-                      ];
-                      const iconBgs = [
-                        'bg-blue-500/20 text-blue-400',
-                        'bg-rose-500/20 text-rose-400',
-                        'bg-amber-500/20 text-amber-400',
-                        'bg-emerald-500/20 text-emerald-400'
-                      ];
+                      const cardClass = `card-db-${idx % 6}`;
+                      const iconClass = `card-db-${idx % 6}-icon`;
                       
                       return (
-                        <div key={db.id} className={`p-5 rounded-xl border transition-all duration-300 group flex flex-col h-full ${colors[idx % colors.length]}`}>
-                          <div className="flex items-center justify-between mb-4">
-                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${iconBgs[idx % iconBgs.length]}`}>
-                              <db.icon size={18} />
-                            </div>
-                            <div className="text-right">
-                              <p className="text-xs font-black text-white">{db.patientCount.toLocaleString()}</p>
-                              <p className="text-[8px] font-bold opacity-50 uppercase tracking-widest">Cohort</p>
-                            </div>
-                          </div>
-                          
-                          <div className="flex-1">
-                            <h3 className="text-xs font-black text-white uppercase tracking-wider mb-2 group-hover:translate-x-1 transition-transform">{db.name}</h3>
-                            <p className="text-[11px] text-slate-400 leading-relaxed font-medium">
-                              {db.desc}
-                            </p>
-                          </div>
-                        </div>
+                         <div key={db.id} className={`p-4 rounded-xl border transition-all duration-300 group flex flex-col h-full ${cardClass}`}>
+                           <div className="flex items-center justify-between mb-3">
+                             <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${iconClass}`}>
+                               <db.icon size={16} />
+                             </div>
+                             <div className="text-right">
+                               <p className="text-[11px] font-bold text-white-pure">{db.patientCount.toLocaleString()}</p>
+                               <p className="text-[7px] font-bold opacity-50 uppercase tracking-widest">Cohort</p>
+                             </div>
+                           </div>
+                           
+                           <div className="flex-1">
+                             <h3 className="text-[11px] font-bold text-white-pure uppercase tracking-wider mb-1 group-hover:translate-x-1 transition-transform">{db.name}</h3>
+                             <p className="text-[10px] text-dark-muted leading-tight font-medium">
+                               {db.desc}
+                             </p>
+                           </div>
+                         </div>
                       );
                     })}
                   </div>
                 </div>
 
                 {/* Subtle Visualization Bar */}
-                <div className="h-1 w-full bg-slate-800 flex">
-                   <div className="h-full bg-blue-500" style={{ width: '25%' }}></div>
-                   <div className="h-full bg-rose-500" style={{ width: '25%' }}></div>
-                   <div className="h-full bg-amber-500" style={{ width: '25%' }}></div>
-                   <div className="h-full bg-emerald-500" style={{ width: '25%' }}></div>
+                <div className="h-1 w-full bg-surface-dark flex">
+                   <div className="h-full bg-brand" style={{ width: '25%' }}></div>
+                   <div className="h-full bg-accent-rose" style={{ width: '25%' }}></div>
+                   <div className="h-full bg-accent-amber" style={{ width: '25%' }}></div>
+                   <div className="h-full bg-accent-emerald" style={{ width: '25%' }}></div>
                 </div>
               </div>
 
@@ -625,63 +630,63 @@ const App: React.FC = () => {
       </div>
 
       {isSaveModalOpen && (
-        <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm animate-in fade-in duration-200">
-           <div className="bg-white w-full max-w-lg rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-in zoom-in-95 slide-in-from-bottom-4 duration-300">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 toast-container/40 backdrop-blur-sm animate-in fade-in duration-200">
+           <div className="bg-surface w-full max-w-lg rounded-2xl shadow-2xl border border-strong overflow-hidden animate-in zoom-in-95 slide-in-from-bottom-4 duration-300">
               <div className="px-8 pt-8 pb-4">
                  <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
-                       <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
+                       <div className="w-10 h-10 badge-light rounded-xl flex items-center justify-center">
                           <Bookmark size={20} />
                        </div>
                        <div>
-                          <h3 className="text-base font-black text-slate-800 uppercase tracking-tight">Save Search Query</h3>
-                          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Workspace Archival</p>
+                          <h3 className="text-base font-black text-main uppercase tracking-tight">Save Search Query</h3>
+                          <p className="text-[10px] font-bold text-muted uppercase tracking-widest">Workspace Archival</p>
                        </div>
                     </div>
-                    <button onClick={() => setIsSaveModalOpen(false)} className="p-2 text-slate-300 hover:text-slate-500 transition-colors">
+                    <button onClick={() => setIsSaveModalOpen(false)} className="p-2 text-muted hover:text-main transition-colors">
                       <X size={20} />
                     </button>
                  </div>
                  <div className="space-y-6">
                     <div className="space-y-1.5">
-                       <label className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Query Title</label>
-                       <input ref={saveInputRef} type="text" value={queryNameToSave} onChange={(e) => setQueryNameToSave(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSaveConfirmed()} placeholder="Enter a descriptive name..." className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-xs font-bold text-slate-700 focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all" />
+                        <label className="text-[9px] font-black text-muted uppercase tracking-[0.2em] ml-1">Query Title</label>
+                       <input ref={saveInputRef} type="text" value={queryNameToSave} onChange={(e) => setQueryNameToSave(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSaveConfirmed()} placeholder="Enter a descriptive name..." className="w-full bg-surface-muted border border-strong rounded-xl py-3 px-4 text-xs font-bold text-main focus:outline-none focus:ring-4 focus:ring-primary-500/10 focus:border-brand transition-all" />
                     </div>
-                    <div className="bg-slate-50 rounded-xl p-5 border border-slate-100">
-                       <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2"><Filter size={12} className="text-blue-500" /> Active Filters Summary</p>
+                    <div className="bg-surface-muted rounded-xl p-5 border border-subtle">
+                       <p className="text-[9px] font-black text-muted uppercase tracking-widest mb-4 flex items-center gap-2"><Filter size={12} className="text-brand" /> Active Filters Summary</p>
                        <div className="space-y-3">
                          {activeFilterEntries.length > 0 ? (
                            <div className="flex flex-wrap gap-2">
                              {activeFilterEntries.map(([key, val]) => (
                                <div key={key} className="flex flex-col gap-1">
-                                 <span className="text-[8px] font-black text-slate-300 uppercase tracking-tighter">{key.replace('primaryTumors', 'Tumor').replace('sex', 'Sex').replace('treatments', 'Rx').replace('biopsySites', 'Site').replace('ageRanges', 'Age')}:</span>
-                                 <div className="flex flex-wrap gap-1">{(val as string[]).map(v => <span key={v} className={`px-2 py-0.5 border rounded-lg text-[9px] font-black uppercase tracking-tight shadow-sm bg-slate-50 text-slate-700`}>{v.replace(/_/g, ' ')}</span>)}</div>
+                                 <span className="text-[8px] font-black text-muted uppercase tracking-tighter">{key.replace('primaryTumors', 'Tumor').replace('sex', 'Sex').replace('treatments', 'Rx').replace('biopsySites', 'Site').replace('ageRanges', 'Age')}:</span>
+                                 <div className="flex flex-wrap gap-1">{(val as string[]).map(v => <span key={v} className={`px-2 py-0.5 border rounded-lg text-[9px] font-black uppercase tracking-tight shadow-sm bg-surface-muted text-main`}>{v.replace(/_/g, ' ')}</span>)}</div>
                                </div>
                              ))}
                            </div>
-                         ) : <div className="flex flex-col items-center py-4 text-slate-300"><Database size={24} className="opacity-20 mb-2" /><p className="text-[9px] font-black uppercase tracking-widest">Full Cohort (No Filters)</p></div>}
+                         ) : <div className="flex flex-col items-center py-4 text-muted"><Database size={24} className="opacity-20 mb-2" /><p className="text-[9px] font-black uppercase tracking-widest">Full Cohort (No Filters)</p></div>}
                        </div>
                     </div>
                  </div>
               </div>
-              <div className="p-6 bg-slate-50/50 border-t border-slate-100 flex items-center justify-end gap-3 mt-4">
-                 <button onClick={() => setIsSaveModalOpen(false)} className="px-6 py-2.5 rounded-lg text-[10px] font-black text-slate-500 uppercase tracking-widest hover:bg-slate-100 transition-all">Cancel</button>
-                 <button onClick={handleSaveConfirmed} disabled={!queryNameToSave.trim()} className="flex items-center gap-2 px-8 py-2.5 bg-blue-600 text-white rounded-lg text-[10px] font-black uppercase tracking-widest shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all disabled:opacity-50 disabled:shadow-none"><Save size={14} /> Confirm & Save</button>
+              <div className="p-6 bg-surface-muted/50 border-t border-subtle flex items-center justify-end gap-3 mt-4">
+                 <button onClick={() => setIsSaveModalOpen(false)} className="px-6 py-2.5 rounded-lg text-[10px] font-black text-muted uppercase tracking-widest hover:bg-surface-muted transition-all">Cancel</button>
+                 <button onClick={handleSaveConfirmed} disabled={!queryNameToSave.trim()} className="flex items-center gap-2 px-8 py-2.5 btn-primary text-white-pure rounded-lg text-[10px] font-black uppercase tracking-widest shadow-lg shadow-primary-200 disabled:opacity-50 disabled:shadow-none"><Save size={14} /> Confirm & Save</button>
               </div>
            </div>
         </div>
       )}
 
-      {showSubmitToast && (
+       {showSubmitToast && (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] animate-in slide-in-from-bottom-4 fade-in duration-300">
-           <div className="bg-slate-900 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-6 border border-white/10 backdrop-blur-md">
+           <div className="toast-container px-6 py-4 rounded-xl shadow-2xl flex items-center gap-6 backdrop-blur-md">
               <div className="flex items-center gap-3">
-                 <div className="w-9 h-9 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400 border border-green-500/30"><Check size={18} strokeWidth={3} /></div>
-                 <div className="flex flex-col"><p className="text-xs font-black uppercase tracking-tight">Request Submitted Successfully</p><p className="text-[10px] text-slate-400 font-medium">Your data access request is now under review by the DAC.</p></div>
+                 <div className="w-9 h-9 rounded-lg toast-success-icon flex items-center justify-center"><Check size={18} strokeWidth={3} /></div>
+                 <div className="flex flex-col"><p className="text-xs font-black uppercase tracking-tight">Request Submitted Successfully</p><p className="text-[10px] text-muted font-medium">Your data access request is now under review by the DAC.</p></div>
               </div>
               <div className="flex items-center gap-3 border-l border-white/10 pl-6">
-                 <button onClick={() => { setActiveTab('workspace'); setShowSubmitToast(false); }} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-green-400 hover:text-green-300 transition-colors">View <ArrowRight size={12} /></button>
-                 <button onClick={() => setShowSubmitToast(false)} className="p-1 text-slate-500 hover:text-white transition-colors"><X size={14} /></button>
+                 <button onClick={() => { setActiveTab('workspace'); setShowSubmitToast(false); }} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-success hover:text-success/80 transition-colors">View <ArrowRight size={12} /></button>
+                 <button onClick={() => setShowSubmitToast(false)} className="p-1 text-muted hover:text-white-pure transition-colors"><X size={14} /></button>
               </div>
            </div>
         </div>
@@ -689,14 +694,14 @@ const App: React.FC = () => {
 
       {showSaveToast && (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] animate-in slide-in-from-bottom-4 fade-in duration-300">
-           <div className="bg-slate-900 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-6 border border-white/10 backdrop-blur-md">
+           <div className="toast-container px-6 py-4 rounded-xl shadow-2xl flex items-center gap-6 backdrop-blur-md">
               <div className="flex items-center gap-3">
-                 <div className="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/30"><Check size={18} strokeWidth={3} /></div>
-                 <div className="flex flex-col"><p className="text-xs font-black uppercase tracking-tight">Query Saved Successfully</p><p className="text-[10px] text-slate-400 font-medium">"{lastSavedName}" added to My Workspace.</p></div>
+                 <div className="w-9 h-9 rounded-lg toast-info-icon flex items-center justify-center"><Check size={18} strokeWidth={3} /></div>
+                 <div className="flex flex-col"><p className="text-xs font-black uppercase tracking-tight">Query Saved Successfully</p><p className="text-[10px] text-muted font-medium">"{lastSavedName}" added to My Workspace.</p></div>
               </div>
               <div className="flex items-center gap-3 border-l border-white/10 pl-6">
-                 <button onClick={() => { setActiveTab('workspace'); setShowSaveToast(false); }} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-400 hover:text-blue-300 transition-colors">View <ArrowRight size={12} /></button>
-                 <button onClick={() => setShowSaveToast(false)} className="p-1 text-slate-500 hover:text-white transition-colors"><X size={14} /></button>
+                 <button onClick={() => { setActiveTab('workspace'); setShowSaveToast(false); }} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brand hover:text-brand/80 transition-colors">View <ArrowRight size={12} /></button>
+                 <button onClick={() => setShowSaveToast(false)} className="p-1 text-muted hover:text-white-pure transition-colors"><X size={14} /></button>
               </div>
            </div>
         </div>
@@ -709,12 +714,12 @@ const App: React.FC = () => {
 
       {showDraftToast && (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] animate-in slide-in-from-bottom-4 fade-in duration-300">
-           <div className="bg-slate-900 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-6 border border-white/10 backdrop-blur-md">
+           <div className="toast-container px-6 py-4 rounded-xl shadow-2xl flex items-center gap-6 backdrop-blur-md">
               <div className="flex items-center gap-3">
-                 <div className="w-9 h-9 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-400 border border-amber-500/30"><Save size={18} strokeWidth={3} /></div>
-                 <div className="flex flex-col"><p className="text-xs font-black uppercase tracking-tight">Draft Saved Successfully</p><p className="text-[10px] text-slate-400 font-medium">Your request draft has been saved.</p></div>
+                 <div className="w-9 h-9 rounded-lg toast-warning-icon flex items-center justify-center"><Save size={18} strokeWidth={3} /></div>
+                 <div className="flex flex-col"><p className="text-xs font-black uppercase tracking-tight">Draft Saved Successfully</p><p className="text-[10px] text-muted font-medium">Your request draft has been saved.</p></div>
               </div>
-              <button onClick={() => setShowDraftToast(false)} className="p-1 text-slate-500 hover:text-white transition-colors"><X size={14} /></button>
+              <button onClick={() => setShowDraftToast(false)} className="p-1 text-muted hover:text-white-pure transition-colors"><X size={14} /></button>
            </div>
         </div>
       )}

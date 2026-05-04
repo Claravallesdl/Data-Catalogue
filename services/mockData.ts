@@ -1,87 +1,133 @@
 
-import { PatientInfo, BiopsyInfo, DashboardRecord, DataRequest, SavedQuery } from '../types';
+import { DashboardRecord, DataRequest, SavedQuery } from '../types';
 
-const CLINICAL_INFO: PatientInfo[] = [
-  { sap: '10949', primaryTumor: 'breast', gender: 'Female', ageDx: null, rangeAge: '45-59', treatment:'Experimental Therapy, Targeted Therapy' },
-  { sap: '11220', primaryTumor: 'breast', gender: 'Female', ageDx: 70, rangeAge: '60-74', treatment:'Targeted Therapy, Hormonal Therapy'},
-  { sap: '16088', primaryTumor: 'lung', gender: 'Male', ageDx: null, rangeAge: '45-59',treatment:'Hormonal Therapy' },
-  { sap: '18688', primaryTumor: 'head_neck', gender: 'Male', ageDx: 54, rangeAge: '45-59',treatment:'Chemotherapy, Immunotherapy' },
-  { sap: '18731', primaryTumor: 'lung', gender: 'Male', ageDx: null, rangeAge: '45-59',treatment:'Chemotherapy, Targeted Therapy' },
-  { sap: '19370', primaryTumor: 'lung', gender: 'Female', ageDx: 55, rangeAge: '45-59',treatment:'Chemotherapy, Targeted Therapy' },
-  { sap: '19830', primaryTumor: 'liver', gender: 'Male', ageDx: null, rangeAge: '60-74',treatment:'Experimental Therapy' },
-  { sap: '22582', primaryTumor: 'colon', gender: 'Male', ageDx: null, rangeAge: '60-74',treatment:'Targeted Therapy' },
-  { sap: '25073', primaryTumor: 'head_neck', gender: 'Female', ageDx: 61, rangeAge: '60-74',treatment:'Targeted Therapy' },
-  { sap: '25203', primaryTumor: 'colon', gender: 'Male', ageDx: 61, rangeAge: '60-74',treatment:'Chemotherapy' },
-  { sap: '25596', primaryTumor: 'breast', gender: 'Female', ageDx: 53, rangeAge: '45-59',treatment:'Targeted Therapy, Immunotherapy' },
-  { sap: '26186', primaryTumor: 'breast', gender: 'Female', ageDx: 67, rangeAge: '60-74',treatment:'Hormonal Therapy' },
-  { sap: '27369', primaryTumor: 'breast', gender: 'Male', ageDx: null, rangeAge: '45-59' ,treatment:'Hormonal Therapy'},
-  { sap: '29237', primaryTumor: 'lung', gender: 'Female', ageDx: null, rangeAge: '45-59',treatment:'UNK' },
-  { sap: '29563', primaryTumor: 'lung', gender: 'Male', ageDx: 22, rangeAge: '19-29',treatment:'UNK' },
-  { sap: '33897', primaryTumor: 'pancreas', gender: 'Male', ageDx: 23, rangeAge: '19-29',treatment:'Chemotherapy' },
-  { sap: '37616', primaryTumor: 'pancreas', gender: 'Female', ageDx: 53, rangeAge: '45-59',treatment:'Chemotherapy'},
-  { sap: '39191', primaryTumor: 'colon', gender: 'Male', ageDx: 67, rangeAge: '60-74' ,treatment:'Chemotherapy, Targeted Therapy'},
+// The data provided by the user (Cancer type -> Count)
+const CANCER_DISTRIBUTION = [
+  { tumor: 'adrenal_gland', count: 52 },
+  { tumor: 'ampulla_of_vater', count: 96 },
+  { tumor: 'anus', count: 15 },
+  { tumor: 'appendix', count: 46 },
+  { tumor: 'biliary_tract', count: 760 },
+  { tumor: 'bladder', count: 407 },
+  { tumor: 'bone', count: 111 },
+  { tumor: 'bowel', count: 402 },
+  { tumor: 'brain', count: 817 },
+  { tumor: 'breast', count: 10178 },
+  { tumor: 'cervix', count: 217 },
+  { tumor: 'cns', count: 4 },
+  { tumor: 'colon', count: 4307 },
+  { tumor: 'cup', count: 6 },
+  { tumor: 'endometrium', count: 289 },
+  { tumor: 'esophagus', count: 217 },
+  { tumor: 'eye', count: 37 },
+  { tumor: 'gallbladder', count: 108 },
+  { tumor: 'head_neck', count: 656 },
+  { tumor: 'kidney', count: 474 },
+  { tumor: 'liver', count: 181 },
+  { tumor: 'lung', count: 2472 },
+  { tumor: 'multiple', count: 225 },
+  { tumor: 'other', count: 355 },
+  { tumor: 'ovary', count: 1091 },
+  { tumor: 'pancreas', count: 2755 },
+  { tumor: 'penis', count: 14 },
+  { tumor: 'peritoneum', count: 55 },
+  { tumor: 'pleura', count: 184 },
+  { tumor: 'prostate', count: 521 },
+  { tumor: 'rectum', count: 1588 },
+  { tumor: 'skin', count: 411 },
+  { tumor: 'soft_tissue', count: 425 },
+  { tumor: 'stomach', count: 808 },
+  { tumor: 'testis', count: 21 },
+  { tumor: 'thymus', count: 46 },
+  { tumor: 'thyroid', count: 394 },
+  { tumor: 'urinary_tract', count: 36 },
+  { tumor: 'uther_renal_pelivs', count: 140 },
+  { tumor: 'vagina', count: 14 },
+  { tumor: 'vulva', count: 51 }
 ];
 
-const BIOPSY_INFO: BiopsyInfo[] = [
-  { sap: '10949', patientId: '11540', biopsyId: 'M1400036', primaryTumor: 'breast', biopsySite: 'breast', type: 'Prim', omicsData: ['WES', 'RNA-Seq'], molecularInfo: ['Panel300', 'HE'] },
-  { sap: '11220', patientId: '16816919', biopsyId: 'M1400037', primaryTumor: 'breast', biopsySite: 'liver', type: 'Met', omicsData: ['WES'], molecularInfo: ['Guardant', 'MSI'] },
-  { sap: '11220', patientId: '16816919', biopsyId: 'M1400038', primaryTumor: 'breast', biopsySite: 'breast', type: 'Prim', omicsData: ['WGS', 'Methylation'], molecularInfo: ['Amplicon', 'IHC'] },
-  { sap: '16088', patientId: '11560', biopsyId: 'M1400039', primaryTumor: 'lung', biopsySite: 'liver', type: 'Met', omicsData: ['RNA-Seq'], molecularInfo: ['Epsilon', 'CopyNumber'] },
-  { sap: '18688', patientId: '11580', biopsyId: 'M1400040', primaryTumor: 'head_neck', biopsySite: 'oral_cavity', type: 'Prim', omicsData: ['Proteomics'], molecularInfo: ['Fisher', 'HE'] },
-  { sap: '10949', patientId: '11540', biopsyId: 'M1400041', primaryTumor: 'breast', biopsySite: 'lung', type: 'Met', omicsData: ['WES'], molecularInfo: ['Panel300'] },
-  { sap: '16088', patientId: '11560', biopsyId: 'M1400042', primaryTumor: 'lung', biopsySite: 'lung', type: 'Prim', omicsData: ['WGS'], molecularInfo: ['MSI'] },
-  { sap: '18731', patientId: '11620', biopsyId: 'M1400043', primaryTumor: 'lung', biopsySite: 'lung', type: 'Prim', omicsData: ['RNA-Seq'], molecularInfo: ['IHC'] },
-  { sap: '19370', patientId: '11681', biopsyId: 'M1400044', primaryTumor: 'lung', biopsySite: 'lung', type: 'Prim', omicsData: ['WES', 'Proteomics'], molecularInfo: ['Panel300', 'CopyNumber'] },
-  { sap: '19370', patientId: '11681', biopsyId: 'M1400045', primaryTumor: 'lung', biopsySite: 'liver', type: 'Met', omicsData: ['WGS'], molecularInfo: ['Guardant'] },
-  { sap: '25073', patientId: '11682', biopsyId: 'M1400046', primaryTumor: 'head_neck', biopsySite: 'oral_cavity', type: 'Prim', omicsData: ['RNA-Seq'], molecularInfo: ['Amplicon'] },
-  { sap: '25073', patientId: '11682', biopsyId: 'M1400047', primaryTumor: 'head_neck', biopsySite: 'breast', type: 'Met', omicsData: ['Methylation'], molecularInfo: ['Epsilon'] },
-  { sap: '16088', patientId: '11560', biopsyId: 'M1400048', primaryTumor: 'lung', biopsySite: 'lung', type: 'Met', omicsData: ['WES'], molecularInfo: ['Fisher'] },
-  { sap: '18688', patientId: '11580', biopsyId: 'M1400049', primaryTumor: 'head_neck', biopsySite: 'oral_cavity', type: 'Met', omicsData: ['WGS'], molecularInfo: ['HE'] },
-  { sap: '10949', patientId: '11540', biopsyId: 'M1400050', primaryTumor: 'breast', biopsySite: 'liver', type: 'Met', omicsData: ['RNA-Seq'], molecularInfo: ['IHC'] },
-  { sap: '19830', patientId: '11701', biopsyId: 'M1400051', primaryTumor: 'liver', biopsySite: 'liver', type: 'Prim', omicsData: ['Proteomics'], molecularInfo: ['MSI'] },
-  { sap: '19830', patientId: '11701', biopsyId: 'M1400052', primaryTumor: 'liver', biopsySite: 'liver', type: 'Met', omicsData: ['WES'], molecularInfo: ['CopyNumber'] },
-  { sap: '19830', patientId: '11701', biopsyId: 'M1400053', primaryTumor: 'liver', biopsySite: 'colon', type: 'Met', omicsData: ['WGS'], molecularInfo: ['Panel300'] },
-  { sap: '22582', patientId: '11702', biopsyId: 'M1400054', primaryTumor: 'colon', biopsySite: 'colon', type: 'Met', omicsData: ['RNA-Seq'], molecularInfo: ['Guardant'] },
-  { sap: '18688', patientId: '11580', biopsyId: 'M1400055', primaryTumor: 'head_neck', biopsySite: 'lung', type: 'Met', omicsData: ['Methylation'], molecularInfo: ['Amplicon'] },
-  { sap: '19830', patientId: '11701', biopsyId: 'M1400056', primaryTumor: 'liver', biopsySite: 'colon', type: 'Met', omicsData: ['Proteomics'], molecularInfo: ['Epsilon'] },
-  { sap: '22582', patientId: '11702', biopsyId: 'M1400057', primaryTumor: 'colon', biopsySite: 'colon', type: 'Met', omicsData: ['WES'], molecularInfo: ['Fisher'] },
-  { sap: '25203', patientId: '11533', biopsyId: 'M1400058', primaryTumor: 'colon', biopsySite: 'colon', type: 'Prim', omicsData: ['WGS'], molecularInfo: ['HE'] },
-  { sap: '25596', patientId: '11733', biopsyId: 'M1400059', primaryTumor: 'breast', biopsySite: 'breast', type: 'Prim', omicsData: ['RNA-Seq'], molecularInfo: ['IHC'] },
-  { sap: '25203', patientId: '11533', biopsyId: 'M1400060', primaryTumor: 'colon', biopsySite: 'lung', type: 'Met', omicsData: ['Methylation'], molecularInfo: ['MSI'] },
-  { sap: '26186', patientId: '115990', biopsyId: 'M1400061', primaryTumor: 'breast', biopsySite: 'breast', type: 'Prim', omicsData: ['Proteomics'], molecularInfo: ['CopyNumber'] },
-  { sap: '26186', patientId: '115990', biopsyId: 'M1400062', primaryTumor: 'breast', biopsySite: 'lung', type: 'Met', omicsData: ['WES'], molecularInfo: ['Panel300'] },
-  { sap: '26186', patientId: '115990', biopsyId: 'M1400063', primaryTumor: 'breast', biopsySite: 'cervix', type: 'Met', omicsData: ['WGS'], molecularInfo: ['Guardant'] },
-  { sap: '25596', patientId: '11733', biopsyId: 'M1400064', primaryTumor: 'breast', biopsySite: 'breast', type: 'Met', omicsData: ['RNA-Seq'], molecularInfo: ['Amplicon'] },
-  { sap: '27369', patientId: '21733', biopsyId: 'M1400065', primaryTumor: 'breast', biopsySite: 'breast', type: 'Prim', omicsData: ['Methylation'], molecularInfo: ['Epsilon'] },
-  { sap: '29237', patientId: '433367', biopsyId: 'M1400066', primaryTumor: 'lung', biopsySite: 'lung', type: 'Prim', omicsData: ['Proteomics'], molecularInfo: ['Fisher'] },
-  { sap: '27369', patientId: '21733', biopsyId: 'M1400067', primaryTumor: 'breast', biopsySite: 'colon', type: 'Met', omicsData: ['WES'], molecularInfo: ['HE'] },
-  { sap: '29563', patientId: '567785', biopsyId: 'M1400068', primaryTumor: 'lung', biopsySite: 'lung', type: 'Prim', omicsData: ['WGS'], molecularInfo: ['IHC'] },
-  { sap: '29563', patientId: '567785', biopsyId: 'M1400069', primaryTumor: 'lung', biopsySite: 'colon', type: 'Met', omicsData: ['RNA-Seq'], molecularInfo: ['MSI'] },
-  { sap: '33897', patientId: '3211123', biopsyId: 'M1400070', primaryTumor: 'pancreas', biopsySite: 'pancreas', type: 'Prim', omicsData: ['Methylation'], molecularInfo: ['CopyNumber'] },
-  { sap: '37616', patientId: '667998', biopsyId: 'M1400071', primaryTumor: 'pancreas', biopsySite: 'pancreas', type: 'Prim', omicsData: ['Proteomics'], molecularInfo: ['Panel300'] },
-  { sap: '33897', patientId: '3211123', biopsyId: 'M1400072', primaryTumor: 'pancreas', biopsySite: 'liver', type: 'Met', omicsData: ['WES'], molecularInfo: ['Guardant'] },
-  { sap: '39191', patientId: '4455630', biopsyId: 'M1400073', primaryTumor: 'colon', biopsySite: 'colon', type: 'Prim', omicsData: ['WGS'], molecularInfo: ['Amplicon'] },
-];
+// Seeded random for consistency
+let seed = 123;
+function random() {
+  const x = Math.sin(seed++) * 10000;
+  return x - Math.floor(x);
+}
 
-export const MOCK_RECORDS: DashboardRecord[] = BIOPSY_INFO.map(biopsy => {
-  const patient = CLINICAL_INFO.find(p => p.sap === biopsy.sap);
-  // Assign databases based on patient SAP, ensuring variety
-  const sapNum = parseInt(biopsy.sap, 10);
-  const databases: string[] = [];
-  if (sapNum % 3 === 0) databases.push('OC');
-  if (sapNum % 4 === 0) databases.push('PS');
-  if (sapNum % 2 === 0) databases.push('TC');
-  if (sapNum % 5 === 0) databases.push('GC');
-  if (databases.length === 0) databases.push('OC'); // Ensure at least one DB
+function pickOne<T>(arr: T[]): T {
+  return arr[Math.floor(random() * arr.length)];
+}
 
-  return {
-    ...biopsy,
-    gender: patient?.gender || 'Unknown',
-    rangeAge: patient?.rangeAge || 'Unknown',
-    treatment: patient?.treatment || 'UNK',
-    databases: databases,
-  };
-});
+function pickMany<T>(arr: T[], max: number = 3): T[] {
+  const count = Math.floor(random() * max) + 1;
+  const shuffled = [...arr].sort(() => 0.5 - random());
+  return shuffled.slice(0, count);
+}
+
+const AGES = ['0-18', '19-29', '30-44', '45-59', '60-74', '75+'] as const;
+const TREATMENTS = ['Androgen/Estrogen Deprivation Therapy', 'Chemotherapy','Experimental Therapy','Hormonal Therapy','Immunotherapy','Nuclear Therapy','Targeted Therapy','UNK'] as const;
+const SITES = ['liver', 'lung', 'lymph_node', 'bone', 'brain', 'skin', 'peritoneum', 'soft_tissue', 'bowel', 'bladder', 'adrenal_gland', 'other'] as const;
+const OMICS = ['WGS', 'WES', 'RNA-sq', 'scRNA-sq', 'miRNA-seq', 'ATAC-seq', 'ChIP -seq'] as const;
+const MOLECULAR = ['Mutation', 'CNA', 'TMB', 'HRD', 'Fusion', 'Amplification'] as const;
+const IMAGES = ['CT Scan', 'MRI', 'PET Scan', 'X-Ray', 'Pathology Slide'] as const;
+
+export const MOCK_RECORDS: DashboardRecord[] = (() => {
+  const records: DashboardRecord[] = [];
+  let sapBase = 10000;
+
+  // Sexual distribution weights (total 57750 approx, based on user provided sum)
+  // Male: 11523
+  // Female: 19043
+  // Unknown: 27184
+  // Total: 57750
+  
+  const TOTAL_SEX = 57750;
+
+  CANCER_DISTRIBUTION.forEach(({ tumor, count }) => {
+    for (let i = 0; i < count; i++) {
+      const sap = (sapBase++).toString();
+      const type = random() > 0.3 ? 'Prim' : 'Met';
+      
+      const databases: string[] = [];
+      const sapNum = parseInt(sap, 10);
+      if (sapNum % 3 === 0) databases.push('OC');
+      if (sapNum % 4 === 0) databases.push('PS');
+      if (sapNum % 2 === 0) databases.push('TC');
+      if (sapNum % 5 === 0) databases.push('GC');
+      if (databases.length === 0) databases.push('OC');
+
+      const randSex = random();
+      let gender: 'Male' | 'Female' | 'Unknown' = 'Unknown';
+      if (randSex < 11523 / TOTAL_SEX) {
+        gender = 'Male';
+      } else if (randSex < (11523 + 19043) / TOTAL_SEX) {
+        gender = 'Female';
+      }
+
+      // Enforce: Primary biopsies must match primaryTumor. Metastasis can be anywhere, including same organ.
+      const biopsySite = type === 'Prim' 
+        ? tumor 
+        : pickOne([...SITES, tumor]);
+
+      records.push({
+        sap,
+        patientId: `P${sap}`,
+        biopsyId: `B${sap}`,
+        primaryTumor: tumor,
+        biopsySite,
+        type: type,
+        omicsData: pickMany([...OMICS], 2),
+        molecularInfo: pickMany([...MOLECULAR], 3),
+        images: pickMany([...IMAGES], 2),
+        gender,
+        rangeAge: pickOne([...AGES]),
+        treatment: pickMany([...TREATMENTS], 2).join(', '),
+        databases
+      });
+    }
+  });
+
+  return records;
+})();
 
 export const MOCK_INCOMING_REQUESTS: DataRequest[] = [
   { 
@@ -92,12 +138,15 @@ export const MOCK_INCOMING_REQUESTS: DataRequest[] = [
     status: 'pending', 
     justification: 'Validation of new biomarker panel in HER2+ cohorts. We require longitudinal data to assess response to therapy over time.',
     requestedData: {
-      patientClinical: ['Gender', 'Survival status (alive/death)'],
+      patientDemographics: ['Gender', 'Survival status (alive/death)'],
+      patientFirstVisit: [],
+      previousTumor: [],
       biopsyClinical: [],
-      treatmentHistory: true,
-      clinicalTrials: false,
+      treatmentHistory: [],
+      clinicalTrials: [],
       omicsData: [],
-      molecularInfo: ['Panel300']
+      molecularInfo: ['Mutation'],
+      images: []
     },
     patientCount: 42,
     cohortFilters: {
@@ -109,6 +158,7 @@ export const MOCK_INCOMING_REQUESTS: DataRequest[] = [
       treatments: [],
       omicsData: [],
       molecularInfo: [],
+      images: [],
       treatmentLogic: 'any',
       omicsLogic: 'any',
       molecularLogic: 'any'
@@ -130,7 +180,7 @@ export const MOCK_INCOMING_REQUESTS: DataRequest[] = [
       {
         title: 'Molecular Information',
         items: [
-          { label: 'Panel300', percent: 64, count: 27 }
+          { label: 'Mutation', percent: 64, count: 27 }
         ]
       }
     ]
@@ -143,12 +193,15 @@ export const MOCK_INCOMING_REQUESTS: DataRequest[] = [
     status: 'approved', 
     justification: 'Meta-analysis of immunotherapy response markers. This study aims to correlate genomic signatures with patient outcomes across multiple trial datasets.',
     requestedData: {
-      patientClinical: ['Survival status (alive/death)'],
+      patientDemographics: ['Survival status (alive/death)'],
+      patientFirstVisit: [],
+      previousTumor: [],
       biopsyClinical: [],
-      treatmentHistory: false,
-      clinicalTrials: false,
+      treatmentHistory: [],
+      clinicalTrials: [],
       omicsData: ['WGS'],
-      molecularInfo: ['Guardant']
+      molecularInfo: ['Mutation'],
+      images: []
     },
     patientCount: 28,
     cohortFilters: {
@@ -160,6 +213,7 @@ export const MOCK_INCOMING_REQUESTS: DataRequest[] = [
       treatments: [],
       omicsData: [],
       molecularInfo: [],
+      images: [],
       treatmentLogic: 'any',
       omicsLogic: 'any',
       molecularLogic: 'any'
@@ -183,12 +237,15 @@ export const MOCK_INCOMING_REQUESTS: DataRequest[] = [
     status: 'rejected', 
     justification: 'Commercial diagnostic tool training (Policy mismatch). The request falls outside the scope of academic research as defined by the DAC policy.',
     requestedData: {
-      patientClinical: ['Primary tumor'],
+      patientDemographics: ['Primary tumor'],
+      patientFirstVisit: [],
+      previousTumor: [],
       biopsyClinical: ['Associated primary tumor'],
-      treatmentHistory: false,
-      clinicalTrials: false,
+      treatmentHistory: [],
+      clinicalTrials: [],
       omicsData: [],
-      molecularInfo: []
+      molecularInfo: [],
+      images: []
     },
     patientCount: 12,
     cohortFilters: {
@@ -200,6 +257,7 @@ export const MOCK_INCOMING_REQUESTS: DataRequest[] = [
       treatments: [],
       omicsData: [],
       molecularInfo: [],
+      images: [],
       treatmentLogic: 'any',
       omicsLogic: 'any',
       molecularLogic: 'any'
@@ -216,12 +274,15 @@ export const MOCK_MY_PETITIONS: DataRequest[] = [
     status: 'pending', 
     justification: 'Comparative study with internal hormone deprivation cohort.',
     requestedData: {
-      patientClinical: ['Gender', 'Survival status (alive/death)'],
+      patientDemographics: ['Gender', 'Survival status (alive/death)'],
+      patientFirstVisit: [],
+      previousTumor: [],
       biopsyClinical: [],
-      treatmentHistory: true,
-      clinicalTrials: false,
+      treatmentHistory: [],
+      clinicalTrials: [],
       omicsData: [],
-      molecularInfo: []
+      molecularInfo: [],
+      images: []
     },
     patientCount: 56,
     cohortFilters: {
@@ -233,6 +294,7 @@ export const MOCK_MY_PETITIONS: DataRequest[] = [
       treatments: ['Androgen/Estrogen Deprivation Therapy'],
       omicsData: [],
       molecularInfo: [],
+      images: [],
       treatmentLogic: 'any',
       omicsLogic: 'any',
       molecularLogic: 'any'
@@ -259,12 +321,15 @@ export const MOCK_MY_PETITIONS: DataRequest[] = [
     status: 'approved', 
     justification: 'Fusion of clinical data lake with imaging features.',
     requestedData: {
-      patientClinical: ['Primary tumor'],
+      patientDemographics: ['Primary tumor'],
+      patientFirstVisit: [],
+      previousTumor: [],
       biopsyClinical: ['Associated primary tumor'],
-      treatmentHistory: false,
-      clinicalTrials: false,
+      treatmentHistory: [],
+      clinicalTrials: [],
       omicsData: [],
-      molecularInfo: []
+      molecularInfo: [],
+      images: []
     },
     patientCount: 120,
     cohortFilters: {
@@ -276,6 +341,7 @@ export const MOCK_MY_PETITIONS: DataRequest[] = [
       treatments: [],
       omicsData: [],
       molecularInfo: [],
+      images: [],
       treatmentLogic: 'any',
       omicsLogic: 'any',
       molecularLogic: 'any'
@@ -297,6 +363,7 @@ export const MOCK_SAVED_QUERIES: SavedQuery[] = [
       treatments: [],
       omicsData: [],
       molecularInfo: [],
+      images: [],
       treatmentLogic: 'any',
       omicsLogic: 'any',
       molecularLogic: 'any'
@@ -316,6 +383,7 @@ export const MOCK_SAVED_QUERIES: SavedQuery[] = [
       treatments: ['Chemotherapy'],
       omicsData: [],
       molecularInfo: [],
+      images: [],
       treatmentLogic: 'any',
       omicsLogic: 'any',
       molecularLogic: 'any'
@@ -333,8 +401,9 @@ export const MOCK_SAVED_QUERIES: SavedQuery[] = [
       biopsySites: [],
       types: [],
       treatments: [],
-      omicsData: ['Methylation', 'Proteomics', 'WES'],
+      omicsData: ['scRNA-sq', 'miRNA-seq', 'WES'],
       molecularInfo: [],
+      images: [],
       treatmentLogic: 'any',
       omicsLogic: 'any',
       molecularLogic: 'any'

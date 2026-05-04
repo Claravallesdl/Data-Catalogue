@@ -32,10 +32,30 @@ export const SEXES: BiologicalSex[] = ['Male', 'Female', 'Unknown'];
 export const AGE_RANGES: AgeRange[] = ['0-18', '19-29', '30-44', '45-59', '60-74', '75+'];
 // Changed to match mock data keys for functional filtering
 export const TYPES: MetPrim[] = ['Met', 'Prim'];
-export const TREATMENTS: Treatment[] = ['Androgen/Estrogen Deprivation Therapy', 'Chemotherapy','Experimental Therapy','Hormonal Therapy','Immunotherapy','Multiple Therapy','Nuclear Therapy','Targeted Therapy','Other','UNK'];
+export const TREATMENTS: Treatment[] = ['Androgen/Estrogen Deprivation Therapy', 'Chemotherapy','Experimental Therapy','Hormonal Therapy','Immunotherapy','Nuclear Therapy','Targeted Therapy','UNK'];
 
-export const OMICS_DATA = ['WES', 'WGS', 'RNA-Seq', 'Methylation', 'Proteomics', 'Metabolomics'];
-export const MOLECULAR_INFO = ['Panel300', 'Guardant', 'Amplicon', 'Epsilon', 'Fisher', 'HE', 'IHC', 'MSI', 'CopyNumber'];
+export const OMICS_DATA = ['WGS', 'WES', 'RNA-sq', 'scRNA-sq', 'miRNA-seq', 'ATAC-seq', 'ChIP -seq'];
+export const MOLECULAR_INFO = [
+  'CNA (Copy Number Alteration)',
+  'Mutation',
+  'TMB (Tumor Mutational Burden)',
+  'HRD (Homologous Recombination Deficiency)',
+  'Overexpression',
+  'Fusion',
+  'VIGEx (Virus Integration and Gene Expression)',
+  'Tumor Cellularity Quantification',
+  'MSI Status (Microsatellite Instability Status)',
+  'Amplification',
+  'Rearrangement'
+];
+
+export const IMAGE_TYPES = [
+  'CT Scan',
+  'MRI',
+  'PET Scan',
+  'X-Ray',
+  'Pathology Slide'
+];
 
 export const HIERARCHY_ORDER: string[] = [
   'primaryTumor',
@@ -45,7 +65,8 @@ export const HIERARCHY_ORDER: string[] = [
   'treatment',
   'biopsySite',
   'omicsData',
-  'molecularInfo'
+  'molecularInfo',
+  'images'
 ];
 
 export const COLORS = {

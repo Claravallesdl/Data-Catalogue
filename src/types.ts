@@ -4,13 +4,15 @@ export type AgeRange = '0-18' | '19-29' | '30-44' | '45-59' | '60-74' | '75+';
 export type MetPrim = 'Metastatic' | 'Primary' | 'Met' | 'Prim';
 
 export interface RequestedData {
-  patientClinical: string[];
+  patientDemographics: string[];
+  patientFirstVisit: string[];
   previousTumor: string[];
   biopsyClinical: string[];
   treatmentHistory: string[];
   clinicalTrials: string[];
   omicsData: string[];
   molecularInfo: string[];
+  images: string[];
 }
 
 export type Treatment = 'Androgen/Estrogen Deprivation Therapy' | 'Chemotherapy' | 'Experimental Therapy' |'Hormonal Therapy' | 'Immunotherapy' | 'Multiple Therapy' |'Nuclear Therapy' |'Targeted Therapy' | 'Other' | 'UNK';
@@ -34,6 +36,7 @@ export interface BiopsyInfo {
   type: MetPrim;
   omicsData: string[];
   molecularInfo: string[];
+  images: string[];
 }
 
 // The joined record that the dashboard consumes
@@ -55,9 +58,11 @@ export interface FilterState {
   treatments: string[];
   omicsData: string[];
   molecularInfo: string[];
+  images: string[];
   treatmentLogic: 'any' | 'all';
   omicsLogic: 'any' | 'all';
   molecularLogic: 'any' | 'all';
+  imagesLogic: 'any' | 'all';
 }
 
 export enum ViewMode {
