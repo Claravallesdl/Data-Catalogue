@@ -18,7 +18,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
             Accelerate Your Oncology Research
           </h1>
           <p className="text-lg text-main leading-relaxed max-w-lg mb-12">
-            A multi-dimensional oncology data platform. Explore available patient data, define cohorts and request data access to power your research.
+            A transversal oncology data platform. Explore available patient data, define cohorts and request data access to power your research.
           </p>
           <div className="flex items-center gap-4">
             <button 
@@ -34,13 +34,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           <ActionCard
             icon={Database}
             title="Go to VHIO Lake"
-            description="A high-precision oncology data lake integrating clinical histories with molecular NGS profiling."
+            description="A comprehensive view of the patient, connecting clinical, pharmacological, and molecular data"
             onClick={() => onNavigate('lake')}
           />
           <ActionCard
             icon={Search}
             title="Explore the Catalogue"
-            description="Use powerful filtering tools to define patient cohorts and discover datasets."
+            description="Use powerful filtering tools to define patient cohorts and discover available datasets."
             onClick={() => onNavigate('catalogue')}
           />
           <ActionCard
