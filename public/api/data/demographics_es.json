@@ -1,0 +1,247 @@
+[
+  {
+    "name": "demographics",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Código SAP del paciente."
+        },
+        {
+            "name": "dem_tumor_type",
+            "type": "varchar(255)",
+            "label": "Tipo de tumor",
+            "description": "Indica el tipo de tumor."
+        },
+        {
+            "name": "dem_name",
+            "type": "varchar(255)",
+            "label": "Nombre y apellidos",
+            "description": "Nombre y apellidos del paciente."
+        },
+        {
+            "name": "dem_birthdate",
+            "type": "date",
+            "label": "Fecha de nacimiento",
+            "description": "Fecha de nacimiento del paciente."
+        },
+        {
+            "name": "dem_gender",
+            "type": "varchar(255)",
+            "label": "Género",
+            "description": "Género del paciente."
+        },
+        {
+            "name": "dem_date_first_visit",
+            "type": "date",
+            "label": "Fecha de la primera visita",
+            "description": "Fecha de la primera visita en el servicio de Oncología Médica."
+        },
+        {
+            "name": "dem_date_first_visit_sarcoma",
+            "type": "date",
+            "label": "Fecha de la primera visita (Unidad de Sarcomas)",
+            "description": "Fecha de la primera visita en la unidad de Sarcoma."
+        },
+        {
+            "name": "dem_first_visit_type",
+            "type": "varchar(255)",
+            "label": "Tipo de primera visita",
+            "description": "Seleccione cómo se realizó la primera visita del paciente: en persona o a distancia / en línea."
+        },
+        {
+            "name": "dem_primary_point_entry",
+            "type": "varchar(255)",
+            "label": "Punto de entrada principal",
+            "description": "El punto de entrada principal se refiere a la fuente o vía principal a través de la cual el paciente accedió por primera vez al servicio o fue derivado al programa o estudio. Identifica quién o qué inició la entrada del paciente (p. ej., médico de atención primaria, comité de tumores, otro hospital o el propio paciente)."
+        },
+        {
+            "name": "dem_age_at_first_visit",
+            "type": "numeric",
+            "label": "Edad en la primera visita",
+            "description": "Edad en la primera visita."
+        },
+        {
+            "name": "dem_aya",
+            "type": "varchar(255)",
+            "label": "¿AYA? (adolescente y adulto joven)",
+            "description": "Esta variable indica típicamente si el paciente pertenece a la población adultos jóvenes, distinguiéndola de los grupos pediátrico (<15 años) o adulto mayor (>39 años) para análisis de estudios adaptados o vías de atención específicas."
+        },
+        {
+            "name": "dem_physician",
+            "type": "varchar(255)",
+            "label": "Médico",
+            "description": "Nombre del médico/a que realiza la primera visita."
+        },
+        {
+            "name": "dem_ethnicity",
+            "type": "varchar(255)",
+            "label": "Etnia",
+            "description": "Etnia se refiere al grupo cultural o ancestral de autoidentificación del paciente, basado en atributos compartidos como idioma, tradiciones, ascendencia, religión u origen nacional."
+        },
+        {
+            "name": "dem_menopausal_stat",
+            "type": "varchar(255)",
+            "label": "Estado menopáusico",
+            "description": "El estado menopáusico clasifica la etapa reproductiva de una paciente mujer en función de su historial menstrual, niveles hormonales (p. ej., FSH) o criterios clínicos."
+        },
+        {
+            "name": "dem_cancer_during_pregnancy",
+            "type": "varchar(255)",
+            "label": "¿Cáncer diagnosticado durante el embarazo?",
+            "description": "Identifica casos en los que se detectó la malignidad mientras la paciente estaba embarazada."
+        },
+        {
+            "name": "dem_cancer_during_breastfeed",
+            "type": "varchar(255)",
+            "label": "¿Cáncer diagnosticado durante la lactancia?",
+            "description": "Identifica casos en los que se detectó la malignidad mientras la paciente estaba en periodo de lactancia."
+        },
+        {
+            "name": "dem_tpal",
+            "type": "varchar(255)",
+            "label": "TPAL",
+            "description": "Sistema de puntuación obstétrico que resume el historial de embarazos de una mujer."
+        },
+        {
+            "name": "dem_abortion_12m",
+            "type": "varchar(255)",
+            "label": "¿Aborto en los 12 meses previos al diagnóstico de cáncer de mama?",
+            "description": "Indica si la paciente ha tenido un aborto (espontáneo o inducido) en los 12 meses anteriores a la fecha de diagnóstico de cáncer de mama."
+        },
+        {
+            "name": "dem_breastfeed",
+            "type": "varchar(255)",
+            "label": "¿La paciente ha estado en periodo de lactancia?",
+            "description": "Indica si la paciente ha realizado lactancia materna (lactancia y alimentación con leche materna a un lactante) en algún momento relevante, típicamente en el contexto de historia reproductiva o de cáncer."
+        },
+        {
+            "name": "dem_breastfeed_last_duration",
+            "type": "numeric",
+            "label": "Meses de lactancia (último hijo)",
+            "description": "Duración de la lactancia del último hijo (mesos)."
+        },
+        {
+            "name": "dem_origin",
+            "type": "varchar(255)",
+            "label": "Hospital de origen",
+            "description": "Indica si el paciente pertenece a Vall d'Hebron o a otro hospital."
+        },
+        {
+            "name": "dem_hospital_origin",
+            "type": "varchar(255)",
+            "label": "Hospital de referencia",
+            "description": "Identifica el hospital o centro médico específico donde la paciente fue admitida por primera vez, diagnosticada o tratada para la condición (ej., cáncer de mama), utilizado para rastrear fuentes de derivación en estudios clínicos."
+        },
+        {
+            "name": "dem_province",
+            "type": "varchar(255)",
+            "label": "Provincia del hospital",
+            "description": "Especifica la provincia administrativa de residencia, diagnóstico o tratamiento de la paciente, basada en las 50 provincias de España para estratificación geográfica en estudios clínicos."
+        },
+        {
+            "name": "dem_uitm_comunidad_autonoma",
+            "type": "varchar(255)",
+            "label": "Comunidad autónoma del hospital",
+            "description": "Identifica la comunidad autónoma de residencia, diagnóstico o tratamiento de la paciente, una de las 17 comunidades autónomas de España más 2 ciudades autónomas."
+        },
+        {
+            "name": "dem_consorcium",
+            "type": "varchar(255)",
+            "label": "Consorcio SNS",
+            "description": "Clasifica el hospital o centro sanitario (de origen o referencia) como público (financiado por el gobierno) o privado."
+        },
+        {
+            "name": "dem_area_reference",
+            "type": "varchar(255)",
+            "label": "Área de referencia",
+            "description": "Clasifica el ámbito geográfico o área de referencia del hospital/centro de tratamiento de la paciente usando un sistema jerárquico, con Vall d'Hebrón como referencia local primaria y ampliándose a niveles internacionales."
+        },
+        {
+            "name": "dem_country",
+            "type": "varchar(255)",
+            "label": "País",
+            "description": "Especifica el país europeo de origen o residencia para pacientes de la UE/no españoles, usado junto con \"Área de referencia: eu\" para estratificación internacional de pacientes."
+        },
+        {
+            "name": "dem_country_other",
+            "type": "varchar(255)",
+            "label": "Otro país (fuera de Europa)",
+            "description": "Registra el país no europeo específico de origen o residencia de la paciente cuando Área de referencia = \"outside_eu\"."
+        },
+        {
+            "name": "dem_reference",
+            "type": "varchar(255)",
+            "label": "Tipo de referencia",
+            "description": "Clasifica la razón o vía de derivación de la paciente al hospital de referencia (Vall d'Hebron), distinguiendo casos nuevos de derivaciones o segundas opiniones en redes de atención oncológica."
+        },
+        {
+            "name": "dem_referrall_network",
+            "type": "varchar(255)",
+            "label": "Red de derivación",
+            "description": "Identifica la red institucional o sector desde el cual fue derivada la paciente cuando Tipo de referencia = \"referall\", centrándose en el sistema sanitario catalán."
+        },
+        {
+            "name": "dem_intention_visit",
+            "type": "varchar(255)",
+            "label": "Intención en la primera visita",
+            "description": "Clasifica el propósito principal de la primera consulta de la paciente en el centro de referencia (Vall d'Hebron), distinguiendo tratamiento estándar de protocolos de investigación o servicios consultivos en vías de atención oncológica."
+        },
+        {
+            "name": "dem_therapeutical_action",
+            "type": "varchar(255)",
+            "label": "Actitud terapéutica en la primera visita",
+            "description": "Documenta la decisión clínica o enfoque terapéutico decidido durante la primera consulta de la paciente en el centro de referencia, capturando inicio de tratamiento, estrategia de observación o enfoque paliativo en vías asistenciales oncológicas."
+        },
+        {
+            "name": "dem_pt_type",
+            "type": "varchar(255)",
+            "label": "Tipo de paciente",
+            "description": "Clasifica pacientes por centro de tratamiento y estadio de enfermedad en primera visita a oncología Vall d'Hebron, distinguiendo pacientes locales (VH) vs. derivados (REF) y enfermedad en estadio temprano vs. Metastásico."
+        },
+        {
+            "name": "dem_trial_stat",
+            "type": "varchar(255)",
+            "label": "¿Paciente incluido en un ensayo clínico?",
+            "description": "Indica si la paciente ha entrado en un ensayo clínico tras la primera visita."
+        },
+        {
+            "name": "dem_trial_name",
+            "type": "varchar(255)",
+            "label": "Nombre del ensayo clínico",
+            "description": "Registra el nombre específico, acrónimo o identificador de protocolo del ensayo clínico."
+        },
+        {
+            "name": "dem_trial_phase",
+            "type": "varchar(255)",
+            "label": "Fase del ensayo clínico",
+            "description": "Especifica la fase de desarrollo del ensayo clínico."
+        },
+        {
+            "name": "dem_tto_prev_lines",
+            "type": "varchar(255)",
+            "label": "Líneas de tratamiento previas",
+            "description": "Registra el número total de regímenes sistémicos anticancerígenos previos distintos (quimioterapia, terapia dirigida, inmunoterapia) recibidos antes de la primera visita en Vall d'Hebron."
+        },
+        {
+            "name": "dem_other_tumors",
+            "type": "varchar(255)",
+            "label": "Cáncer previo",
+            "description": "Indica si la paciente tiene antecedentes documentados de cualquier neoplasia maligna (distinta del actual diagnóstico de cáncer) previo a la primera visita en Vall d'Hebron, incluyendo carcinomas basocelulares/escamosos tratados exitosamente si clínicamente relevante."
+        },
+        {
+            "name": "dem_family_history",
+            "type": "varchar(255)",
+            "label": "Antecedentes familiares de cáncer",
+            "description": "Indica si la paciente tiene familiares de primer grado (padres, hermanos, hijos) o segundo grado (abuelos, tíos, sobrinos) con antecedentes de cáncer, relacionados con la evaluación de riesgo de cáncer."
+        },
+        {
+            "name": "dem_family_history_details",
+            "type": "varchar(255)",
+            "label": "Detalles de antecedentes familiares de cáncer",
+            "description": "Proporciona documentación detallada de antecedentes familiares de cáncer cuando \"Antecedentes familiares de cáncer = Sí\", incluyendo relación familiar, tipo(s) de cáncer."
+        }
+    ]
+  }
+]

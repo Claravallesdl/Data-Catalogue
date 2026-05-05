@@ -1,0 +1,10 @@
+[
+  {
+    "name": "biopsies",
+    "columns": [
+      { "name": "bx_id", "label": "Biopsy ID", "type": "VARCHAR", "description": "Unique identifier for the biopsy procedure.", "isPK": true },
+      { "name": "bx_site", "label": "Biopsy Site", "type": "VARCHAR", "description": "Anatomical location where the tissue was collected." },
+      { "name": "bx_type", "label": "Met or Prim", "type": "VARCHAR", "description": "Classification as primary tumor or metastasis." }
+    ]
+  }
+]

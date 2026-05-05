@@ -1,0 +1,43 @@
+[
+  {
+    "name": "uptodate_tumor_status",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "SAP code associated with the patient."
+        },
+        {
+            "name": "upt_last_visit_status",
+            "type": "varchar(255)",
+            "label": "Last visit status",
+            "description": "Indicates the current disease status based on the most recent clinical or radiological assessment."
+        },
+        {
+            "name": "upt_last_visit_date",
+            "type": "date",
+            "label": "Last visit date",
+            "description": "Records the exact date of the patient's last documented clinical interaction."
+        },
+        {
+            "name": "upt_exitus_date",
+            "type": "date",
+            "label": "Exitus date",
+            "description": "Records the exact date of the patient's death."
+        },
+        {
+            "name": "upt_last_ecog",
+            "type": "varchar(255)",
+            "label": "Last ECOG",
+            "description": "Indicates the level of functionality and autonomy of the patient in their activities of daily living."
+        },
+        {
+            "name": "upt_patient_stat",
+            "type": "varchar(255)",
+            "label": "Patient vital status",
+            "description": "Indicates whether the patient is alive or deceased (exitus) at the time of the last data update."
+        }
+    ]
+  }
+]

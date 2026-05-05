@@ -1,0 +1,9 @@
+[
+  {
+    "name": "informed_consents",
+    "columns": [
+      { "name": "cons_status", "label": "Consent Status", "type": "VARCHAR", "description": "Has the patient signed the research consent?" },
+      { "name": "cons_date", "label": "Consent Date", "type": "DATE", "description": "Date of signing." }
+    ]
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "met_biopsies_sap_vh",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Codi SAP associat al pacient."
+        },
+        {
+            "name": "metbiopsy_id",
+            "type": "varchar(255)",
+            "label": "ID biòpsia",
+            "description": "Registra el codi específic de laboratori o institucional que identifica de forma única una mostra de teixit obtinguda mitjançant biopsia en tots els tumors sòlids, permetent seguiment precís de la mostra, correlació d'anàlisis moleculars i vinculació amb biobancs en fluxos de treball d'oncologia de precisió."
+        },
+        {
+            "name": "metbiopsy_site",
+            "type": "varchar(255)",
+            "label": "Localització biòpsia",
+            "description": "Especifica la localització anatòmica precisa des de la qual es va obtenir la mostra de teixit per biopsia."
+        },
+        {
+            "name": "metbiopsy_site_other",
+            "type": "varchar(255)",
+            "label": "Altre localització biòpsia",
+            "description": "Camp de text lliure per documentar localitzacions anatòmiques precises des de les quals es van obtenir mostres de teixit per biopsia en tots els tumors sòlids no cobertes per opcions checkbox estàndard."
+        },
+        {
+            "name": "metbiopsy_date",
+            "type": "date",
+            "label": "Data de recollida",
+            "description": "Registra la data exacta quan es va recollir físicament la mostra de teixit per biopsia del pacient."
+        }
+    ]
+  }
+]

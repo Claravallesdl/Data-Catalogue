@@ -1,0 +1,43 @@
+[
+  {
+    "name": "uptodate_tumor_status",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Codi SAP associat al pacient."
+        },
+        {
+            "name": "upt_last_visit_status",
+            "type": "varchar(255)",
+            "label": "Estat a l’última visita",
+            "description": "Indica l'estat actual de la malaltia basat en l'avaluació clínica o radiològica més recent."
+        },
+        {
+            "name": "upt_last_visit_date",
+            "type": "date",
+            "label": "Data de l’última visita",
+            "description": "Registra la data exacta de l'última interacció clínica documentada de la pacient."
+        },
+        {
+            "name": "upt_exitus_date",
+            "type": "date",
+            "label": "Data d’exitus",
+            "description": "Registra la data exacta de la defunció de la pacient."
+        },
+        {
+            "name": "upt_last_ecog",
+            "type": "varchar(255)",
+            "label": "Últim ECOG",
+            "description": "Indica el nivell de funcionalitat i d’autonomia del pacient en les seves activitats de la vida diària."
+        },
+        {
+            "name": "upt_patient_stat",
+            "type": "varchar(255)",
+            "label": "Estat vital del pacient",
+            "description": "Indica si la pacient està viva o ha mort (exitus) en el moment de l'última actualització de dades."
+        }
+    ]
+  }
+]

@@ -1,0 +1,157 @@
+[
+  {
+    "name": "surgery",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Codi SAP associat al pacient."
+        },
+        {
+            "name": "surg_date",
+            "type": "date",
+            "label": "Data de la cirurgia",
+            "description": "Registra la data exacta quan es va realitzar qualsevol intervenció quirúrgica en el tumor sòlid primari."
+        },
+        {
+            "name": "surg_procedure_type",
+            "type": "varchar(255)",
+            "label": "Tipus procediment",
+            "description": "Camp categòric binari que distingueix entre biopsia estereotàctica diagnòstica versus excisió/resecció quirúrgica terapèutica de tumors cerebrals primaris."
+        },
+        {
+            "name": "surg_hospital",
+            "type": "varchar(255)",
+            "label": "Nom hospital cirurgia",
+            "description": "Camp de text lliure que captura el nom exacte de l'hospital o centre quirúrgic on va ocórrer la cirurgia del tumor primari."
+        },
+        {
+            "name": "surg_biopsy_id",
+            "type": "varchar(255)",
+            "label": "ID biòpsia quirúrgica",
+            "description": "Identificador únic assignat a l'espècimen patològic obtingut durant la cirurgia del tumor primari (de l'informe de patologia quirúrgica)."
+        },
+        {
+            "name": "surg_location",
+            "type": "varchar(255)",
+            "label": "Localització de la cirurgia",
+            "description": "Camp de caselles de verificació de selecció múltiple que especifica tots els llocs anatòmics intervenguts quirúrgicament durant ressecció de tumor primari."
+        },
+        {
+            "name": "surg_location_other",
+            "type": "varchar(255)",
+            "label": "Altra localització de la cirurgia",
+            "description": "Camp de text lliure per documentar llocs anatòmics intervenguts quirúrgicament no coberts per opcions estàndard de selecció múltiple."
+        },
+        {
+            "name": "surg_post_status",
+            "type": "varchar(255)",
+            "label": "Estat malaltia post cirurgia",
+            "description": "Avaluació binària de l'informe de patologia quirúrgica i/o imatge postoperatoria que documenta ressecció completa (R0/sense tumor residual) versus ressecció incompleta (R1/R2/tumor residual present) tras cirurgia de tumor primari."
+        },
+        {
+            "name": "surg_exploratory_laparotomy",
+            "type": "varchar(255)",
+            "label": "S’ha realitzat laparotomia exploratòria?",
+            "description": "Indicador binari que documenta si es va realitzar laparotomia exploratòria (cirurgia abdominal oberta per inspecció intraabdominal, biòpsia o estadificació) com a part de l'avaluació del tumor primari o estudi diagnòstic en tumors sòlids abdominals/pèlvics."
+        },
+        {
+            "name": "surg_invasion",
+            "type": "varchar(255)",
+            "label": "Invasió",
+            "description": "Camp de caselles de verificació de selecció múltiple que documenta patrons específics d'invasió microvascular identificats a l'espècimen de patologia quirúrgica (limfàtica, perineural, venosa)."
+        },
+        {
+            "name": "surg_tumor_budding",
+            "type": "varchar(255)",
+            "label": "Brotació tumoral",
+            "description": "Camp de selecció única que documenta el grau de brotació tumoral al front invasiu segons guies consens ITBCC 2016 de l'informe de patologia quirúrgica, usant sistema refinat de 4 nivells (Bd0-Bd3) per càncer colorectal i altres càncers epitelials."
+        },
+        {
+            "name": "surg_pt",
+            "type": "varchar(255)",
+            "label": "Categoria pT",
+            "description": "Llista desplegable de selecció única que documenta categoria patològica del tumor primari (pT) de l'informe de patologia quirúrgica, quantificant extensió d'invasió tumoral primària a travers de membrana basal cap teixits circumdants."
+        },
+        {
+            "name": "surg_pn",
+            "type": "varchar(255)",
+            "label": "Categoria pN",
+            "description": "Llista de selecció única que documenta categoria patològica de ganglis linfàtics regionals (pN) de l'informe de patologia quirúrgica, quantificant nombre i morfologia de ganglis linfàtics metastàsics examinats."
+        },
+        {
+            "name": "surg_pm",
+            "type": "varchar(255)",
+            "label": "Categoria pM",
+            "description": "Llista de selecció única que documenta categoria patològica de metàstasi a distància (pM) de l'informe de patologia quirúrgica, confirmant dipòsits metastàsics distants verificats histològicament identificats durant ressecció de tumor primari."
+        },
+        {
+            "name": "surg_tnm_stage",
+            "type": "varchar(255)",
+            "label": "Estadi TNM al diagnòstic",
+            "description": "Llista de selecció única que especifica el grup complet d'estadi patològic TNM determinat de l'informe de patologia quirúrgica."
+        },
+        {
+            "name": "surg_regression_grade",
+            "type": "varchar(255)",
+            "label": "Grau de regressió (GR)",
+            "description": "Camp categòric de selecció única que documenta grau de regressió tumoral a l'espècimen de patologia quirúrgica després de tractament neoadjuvant."
+        },
+        {
+            "name": "surg_resection_grade",
+            "type": "varchar(255)",
+            "label": "Resecció",
+            "description": "Camp categòric de selecció única que documenta estat de marges quirúrgics de l'informe de patologia quirúrgica, classificant completitud de ressecció tumoral primària (R0 neteja microscòpica vs R1/R2 malaltia residual)."
+        },
+        {
+            "name": "surg_pcr",
+            "type": "varchar(255)",
+            "label": "pCR feta?",
+            "description": "Indicador binari que confirma resposta patològica completa (pCR = ypT0/Tis ypN0) a l'espècimen de patologia quirúrgica després de quimioteràpia ± radioteràpia neoadjuvant."
+        },
+        {
+            "name": "surg_type",
+            "type": "varchar(255)",
+            "label": "Tipus de cirurgia",
+            "description": "Camp de selecció única que especifica el procediment quirúrgic exacte realitzat sobre el tumor primari."
+        },
+        {
+            "name": "surg_type_other",
+            "type": "varchar(255)",
+            "label": "Altre tipus de cirurgia",
+            "description": "Camp de text lliure per documentar procediments quirúrgics no coberts per opcions estandarditzades."
+        },
+        {
+            "name": "ttm_crs",
+            "type": "varchar(255)",
+            "label": "CRS",
+            "description": "Camp de selecció única que documenta Puntuació de Resposta a Quimioteràpia (CRS) en espècimens omentals/ovàrics de cirurgia de debulking interval tras quimioteràpia neoadjuvant."
+        },
+        {
+            "name": "surg_gc",
+            "type": "varchar(255)",
+            "label": "Resultat de GC post cirurgia",
+            "description": "Indicador binari que documenta resultat patològic de Biòpsia de Gangli Centinela (BSGC) després de la cirurgia de tumor primari."
+        },
+        {
+            "name": "surg_rcb",
+            "type": "varchar(255)",
+            "label": "RCB",
+            "description": "Camp categòric de selecció única que documenta classe d'índex de Càrrega Tumoral Residual (RCB 0-III) en espècimen de patologia quirúrgica de càncer de mama després de quimioteràpia neoadjuvant."
+        },
+        {
+            "name": "surg_adp",
+            "type": "varchar(255)",
+            "label": "ADP (nombre de ganglis identificats)",
+            "description": "Nombre enter que documenta el nombre total de ganglis linfàtics axil·lars examinats i identificats patològicament a l'espècimen de patologia quirúrgica."
+        },
+        {
+            "name": "surg_adp_invaded",
+            "type": "varchar(255)",
+            "label": "ADP envaïts (nombre de ganglis envaïts)",
+            "description": "Nombre enter que quantifica el nombre exacte de ganglis linfàtics axil·lars confirmats patològicament com metastàsics."
+        }
+    ]
+  }
+]

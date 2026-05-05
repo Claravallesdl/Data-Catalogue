@@ -1,0 +1,37 @@
+[
+  {
+    "name": "project_information",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "SAP code associated with the patient."
+        },
+        {
+            "name": "project_stat",
+            "type": "varchar(255)",
+            "label": " Patient enrolled in any project?",
+            "description": "Indicates whether the patient is currently enrolled in any research project, clinical study, biobank, or precision medicine initiative at VHIO or collaborating institutions."
+        },
+        {
+            "name": "project_enrollment",
+            "type": "varchar(255)",
+            "label": "Project enrollment",
+            "description": "Multi-select checkbox field listing specific research projects."
+        },
+        {
+            "name": "project_name_other",
+            "type": "varchar(255)",
+            "label": "Other project",
+            "description": "Free-text field to specify research project names not listed in the \"Project enrollment (checkbox)\" options."
+        },
+        {
+            "name": "project_pro_id",
+            "type": "varchar(255)",
+            "label": "Project Information - PRO ID",
+            "description": "Unique alphanumeric identifier assigned to PRO project."
+        }
+    ]
+  }
+]

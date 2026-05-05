@@ -1,0 +1,247 @@
+[
+  {
+    "name": "demographics",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Codi SAP associat al pacient."
+        },
+        {
+            "name": "dem_tumor_type",
+            "type": "varchar(255)",
+            "label": "Tipus de tumor",
+            "description": "Indica el tipus de tumor."
+        },
+        {
+            "name": "dem_name",
+            "type": "varchar(255)",
+            "label": "Nom i cognoms",
+            "description": "Nom i cognoms del pacient."
+        },
+        {
+            "name": "dem_birthdate",
+            "type": "date",
+            "label": "Data de naixement",
+            "description": "Data de naixement del pacient."
+        },
+        {
+            "name": "dem_gender",
+            "type": "varchar(255)",
+            "label": "Gènere",
+            "description": "Gènere del pacient."
+        },
+        {
+            "name": "dem_date_first_visit",
+            "type": "date",
+            "label": "Data de la primera visita",
+            "description": "Data de la primera visita al servei d’Oncologia Mèdica."
+        },
+        {
+            "name": "dem_date_first_visit_sarcoma",
+            "type": "date",
+            "label": "Data de la primera visita (Unitat de Sarcomes)",
+            "description": "Data de la primera visita a la Unitat de Sarcomes."
+        },
+        {
+            "name": "dem_first_visit_type",
+            "type": "varchar(255)",
+            "label": "Tipus de primera visita",
+            "description": "Selecciona com es va realitzar la primera visita del pacient: en persona o a distància / en línia."
+        },
+        {
+            "name": "dem_primary_point_entry",
+            "type": "varchar(255)",
+            "label": "Punt d’entrada principal",
+            "description": "El punt d’entrada principal es refereix a la font o via principal a través de la qual el pacient va accedir per primera vegada al servei o va ser derivat al programa o estudi. Identifica qui o què va iniciar l’entrada del pacient (p. ex., metge d’atenció primària, comitè de tumors, un altre hospital o el propi pacient)."
+        },
+        {
+            "name": "dem_age_at_first_visit",
+            "type": "numeric",
+            "label": "Edat a la primera visita",
+            "description": "Edat en la primera visita."
+        },
+        {
+            "name": "dem_aya",
+            "type": "varchar(255)",
+            "label": "AYA? (adolescent i adult jove)",
+            "description": "Aquesta variable indica habitualment si el pacient pertany a la població d’adults joves (AYA), diferenciant-la dels grups pediàtric (<15 anys) o adult major (>39 anys) per a anàlisis d’estudis adaptats o vies d’atenció específiques."
+        },
+        {
+            "name": "dem_physician",
+            "type": "varchar(255)",
+            "label": "Metge/Metgessa",
+            "description": "Nom del metge/sa que realitza la primera visita."
+        },
+        {
+            "name": "dem_ethnicity",
+            "type": "varchar(255)",
+            "label": "Ètnia",
+            "description": "L’etnicitat es refereix al grup cultural o ancestral amb què el pacient s’autoidentifica, basat en atributs compartits com la llengua, les tradicions, l’ascendència, la religió o l’origen nacional."
+        },
+        {
+            "name": "dem_menopausal_stat",
+            "type": "varchar(255)",
+            "label": "Estat menopàusic",
+            "description": "L’estat menopàusic classifica l’etapa reproductiva d’una pacient en funció del seu historial menstrual, els nivells hormonals (p. ex., FSH) o criteris clínics."
+        },
+        {
+            "name": "dem_cancer_during_pregnancy",
+            "type": "varchar(255)",
+            "label": "Càncer diagnosticat durant l’embaràs?",
+            "description": "Identifica casos en què la malignitat es va detectar mentre la pacient estava embarassada."
+        },
+        {
+            "name": "dem_cancer_during_breastfeed",
+            "type": "varchar(255)",
+            "label": "Càncer diagnosticat durant la lactància?",
+            "description": "Identifica casos en què la malignitat es va detectar mentre la pacient estava en període de lactància."
+        },
+        {
+            "name": "dem_tpal",
+            "type": "varchar(255)",
+            "label": "TPAL",
+            "description": "Sistema de puntuació obstètric que resumeix l’historial d’embarassos d’una dona."
+        },
+        {
+            "name": "dem_abortion_12m",
+            "type": "varchar(255)",
+            "label": "Avortament en els 12 mesos previs al diagnòstic de càncer de mama?",
+            "description": "Indica si la pacient ha tingut un avortament (espontani o induït) en els 12 mesos previs a la data de diagnòstic de càncer de mama."
+        },
+        {
+            "name": "dem_breastfeed",
+            "type": "varchar(255)",
+            "label": "La pacient ha estat en període de lactància?",
+            "description": "Indica si la pacient ha realitzat alletament matern (lactància i alimentació amb llet materna a un lactant) en algun moment rellevant, típicament en el context d'història reproductiva o de càncer."
+        },
+        {
+            "name": "dem_breastfeed_last_duration",
+            "type": "numeric",
+            "label": "Mesos de lactància (últim fill)",
+            "description": "Durada de l'aletament del darrer fill (mesos)."
+        },
+        {
+            "name": "dem_origin",
+            "type": "varchar(255)",
+            "label": "Hospital d’origen",
+            "description": "Indica si el pacient pertany a Vall d'Hebron o a un altre hospital."
+        },
+        {
+            "name": "dem_hospital_origin",
+            "type": "varchar(255)",
+            "label": "Hospital de referència",
+            "description": "Identifica l'hospital o centre mèdic específic on la pacient va ser admesa per primera vegada, diagnosticada o tractada per la condició (ex., càncer de mama), utilitzat per rastrejar fonts de derivació en estudis clínics."
+        },
+        {
+            "name": "dem_province",
+            "type": "varchar(255)",
+            "label": "Província de l’hospital",
+            "description": "Especifica la província administrativa de residència, diagnòstic o tractament de la pacient, basada en les 50 províncies d'Espanya per estratificació geogràfica en estudis clínics."
+        },
+        {
+            "name": "dem_uitm_comunidad_autonoma",
+            "type": "varchar(255)",
+            "label": "Comunitat autònoma de l’hospital",
+            "description": "Identifica la comunitat autònoma de residència, diagnòstic o tractament de la pacient, una de les 17 comunitats autònomes d'Espanya més 2 ciutats autònomes."
+        },
+        {
+            "name": "dem_consorcium",
+            "type": "varchar(255)",
+            "label": "Consorci SNS",
+            "description": "Classifica l'hospital o centre sanitari (d'origen o referència) com a públic (finançat pel govern) o privat."
+        },
+        {
+            "name": "dem_area_reference",
+            "type": "varchar(255)",
+            "label": "Àrea de referència",
+            "description": "Classifica l'abast geogràfic o àrea de referència de l'hospital/centre de tractament de la pacient utilitzant un sistema jeràrquic, amb Vall d'Hebron com a referència local primària i ampliant-se a nivells internacionals."
+        },
+        {
+            "name": "dem_country",
+            "type": "varchar(255)",
+            "label": "País",
+            "description": "Especifica el país europeu d'origen o residència per a pacients de la UE/no espanyols, utilitzat junt amb \"Àrea de referència: eu\" per estratificació internacional de pacients."
+        },
+        {
+            "name": "dem_country_other",
+            "type": "varchar(255)",
+            "label": "Altre país (fora d'Europa)",
+            "description": "Registra el país no europeu específic d'origen o residència de la pacient quan Àrea de referència = \"outside_eu\"."
+        },
+        {
+            "name": "dem_reference",
+            "type": "varchar(255)",
+            "label": "Tipus de referència",
+            "description": "Classifica la raó o via de derivació de la pacient a l'hospital de referència (Vall d'Hebron), distingint casos nous de derivacions o segones opinions en xarxes d'atenció oncològica."
+        },
+        {
+            "name": "dem_referrall_network",
+            "type": "varchar(255)",
+            "label": "Xarxa de derivació",
+            "description": "Identifica la xarxa institucional o sector des del qual va ser derivada la pacient quan Tipus de referència = \"referall\", centrant-se en el sistema sanitari català."
+        },
+        {
+            "name": "dem_intention_visit",
+            "type": "varchar(255)",
+            "label": "Intenció a la primera visita",
+            "description": "Classifica el propòsit principal de la primera consulta de la pacient al centre de referència (Vall d'Hebron), distingint tractament estàndard de protocols de recerca o serveis consultius en vies d'atenció oncològica."
+        },
+        {
+            "name": "dem_therapeutical_action",
+            "type": "varchar(255)",
+            "label": "Actitud terapèutica a la primera visita",
+            "description": "Documenta la decisió clínica o enfocament terapèutic decidit durant la primera consulta de la pacient al centre de referència, capturant inici de tractament, estratègia d'observació o enfocament pal·liatiu en vies assistencials oncològiques."
+        },
+        {
+            "name": "dem_pt_type",
+            "type": "varchar(255)",
+            "label": "Tipus de pacient",
+            "description": "Classifica pacients per centre de tractament i estadificació de la malaltia a la primera visita a oncologia Vall d'Hebron, distingint pacients locals (VH) vs. derivats (REF) i malaltia en estadis primerencs vs. Metastàsics."
+        },
+        {
+            "name": "dem_trial_stat",
+            "type": "varchar(255)",
+            "label": "Pacient inclòs en un assaig clínic?",
+            "description": "Indica si la pacient ha entrat en un assaig clínic després de la primera visita."
+        },
+        {
+            "name": "dem_trial_name",
+            "type": "varchar(255)",
+            "label": "Nom de l’assaig clínic",
+            "description": "Registra el nom específic, acrònim o identificador de protocol de l'assaig clínic."
+        },
+        {
+            "name": "dem_trial_phase",
+            "type": "varchar(255)",
+            "label": "Fase de l’assaig clínic",
+            "description": "Especifica la fase de desenvolupament de l'assaig clínic."
+        },
+        {
+            "name": "dem_tto_prev_lines",
+            "type": "varchar(255)",
+            "label": "Línies de tractament prèvies",
+            "description": "Registra el nombre total de règims sistèmics anticancerosos previs diferents (quimioteràpia, teràpia dirigida, immunoteràpia) rebuts abans de la primera visita a Vall d'Hebron."
+        },
+        {
+            "name": "dem_other_tumors",
+            "type": "varchar(255)",
+            "label": "Càncer previ",
+            "description": "Indica si la pacient té antecedents documentats de qualsevol neoplasia maligna (diferent del actual diagnòstic de càncer) abans de la primera visita a Vall d'Hebron, incloent carcinomes basocel·lulars/escamosos tractats amb èxit si clínicament rellevant."
+        },
+        {
+            "name": "dem_family_history",
+            "type": "varchar(255)",
+            "label": "Antecedents familiars de càncer",
+            "description": "Indica si la pacient té parents de primer grau (pares, germans, fills) o segon grau (avis, oncles, nebots) amb antecedents de càncer, relacionats amb l'avaluació de risc de càncer."
+        },
+        {
+            "name": "dem_family_history_details",
+            "type": "varchar(255)",
+            "label": "Detalls dels antecedents familiars de càncer",
+            "description": "Proporciona documentació detallada d'antecedents familiars de càncer quan \"Antecedents familiars de càncer = Sí\", incloent relació familiar, tipus(s) de càncer."
+        }
+    ]
+  }
+]

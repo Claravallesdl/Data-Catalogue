@@ -1,0 +1,9 @@
+[
+  {
+    "name": "clinical_information",
+    "columns": [
+      { "name": "clin_tobacco", "label": "Tobacco History", "type": "VARCHAR", "description": "Smoking status of the patient." },
+      { "name": "clin_comorbid", "label": "Comorbidities", "type": "VARCHAR", "description": "Other relevant medical conditions." }
+    ]
+  }
+]

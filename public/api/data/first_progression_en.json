@@ -1,0 +1,151 @@
+[
+  {
+    "name": "first_progression",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "SAP code associated with the patient"
+        },
+        {
+            "name": "pd_stat",
+            "type": "varchar(255)",
+            "label": "Patient progressed?",
+            "description": "Indicates whether the patient has experienced disease progression"
+        },
+        {
+            "name": "pd_date",
+            "type": "date",
+            "label": "Progression date",
+            "description": "Records the exact date when disease progression was confirmed"
+        },
+        {
+            "name": "pd_num_sites",
+            "type": "varchar(255)",
+            "label": "Nº sites first progression",
+            "description": "Records the total number of distinct anatomical sites (organs/regions) with confirmed disease progression at the first documented progression"
+        },
+        {
+            "name": "pd_loc",
+            "type": "varchar(255)",
+            "label": "Location first progression",
+            "description": "Documents all anatomical sites exhibiting confirmed disease progression, using multiple-select checkboxes for comprehensive metastatic pattern characterization"
+        },
+        {
+            "name": "pd_location_other",
+            "type": "varchar(255)",
+            "label": "Other location first progression",
+            "description": "Free-text field to document anatomical sites of first progression not covered by standard checkbox options"
+        },
+        {
+            "name": "pd_locoregional",
+            "type": "varchar(255)",
+            "label": "Locoregional recurrence?",
+            "description": "Indicates whether the first progression event represents isolated recurrence in the ipsilateral primary site, regional lymph nodes, or adjacent structures (without distant metastases), distinguishing locoregional from systemic metastatic progression across all solid tumors"
+        },
+        {
+            "name": "pd_locoregional_site",
+            "type": "varchar(255)",
+            "label": "Site locoregional recurrenc",
+            "description": "Classifies confirmed locoregional recurrence sites across all solid tumors as either \"local\" (ipsilateral primary tumor bed/scar) or \"regional\" (adjacent lymph nodes)"
+        },
+        {
+            "name": "pd_locoregional_date",
+            "type": "date",
+            "label": "Locoregional recurrence date",
+            "description": "Records the exact date of pathological or radiological confirmation of locoregional recurrence"
+        },
+        {
+            "name": "pd_distant",
+            "type": "varchar(255)",
+            "label": "Distant recurrence?",
+            "description": "Indicates whether the first progression event represents distant metastatic recurrence (M1 disease)"
+        },
+        {
+            "name": "pd_distant_site",
+            "type": "varchar(255)",
+            "label": "Site distant recurrence",
+            "description": "Documents all confirmed anatomical sites of distant metastatic recurrence (M1 disease) "
+        },
+        {
+            "name": "pd_distant_site_other",
+            "type": "varchar(255)",
+            "label": "Other distant recurrent site",
+            "description": "Free-text field to document anatomical sites of distant metastatic recurrence (M1 disease) not covered by standard checkbox options"
+        },
+        {
+            "name": "pd_distant_date",
+            "type": "date",
+            "label": "Distant recurrence date",
+            "description": "Records the exact date of pathological or radiological confirmation of distant metastatic recurrence (M1 disease)"
+        },
+        {
+            "name": "pd_ecog",
+            "type": "varchar(255)",
+            "label": "ECOG first progression",
+            "description": "Records the Eastern Cooperative Oncology Group (ECOG) performance status scale value assessed at the time of first disease progression confirmation"
+        },
+        {
+            "name": "pd_loc_cumulative",
+            "type": "varchar(255)",
+            "label": "Total metastatic sites during cancer period",
+            "description": "Records the cumulative total number of distinct anatomical sites exhibiting metastatic involvement across the entire disease course for all solid tumors, counting each unique organ/region once regardless of multiple progression events or treatment lines."
+        },
+        {
+            "name": "pd_loc_cumulative_other",
+            "type": "varchar(255)",
+            "label": "Other metastatic site during cancer period",
+            "description": "Free-text field to document anatomical sites of metastatic involvement across all solid tumors not covered by standard checkbox options"
+        },
+        {
+            "name": "pd_controlateral_breast",
+            "type": "varchar(255)",
+            "label": "Invasive Controlateral Breast Cancer?",
+            "description": "Indicates whether the patient has developed histologically confirmed invasive carcinoma in the contralateral breast, representing a second primary breast malignancy"
+        },
+        {
+            "name": "pd_controlateral_breast_date",
+            "type": "date",
+            "label": "Invasive Controlateral Breast Cancer date",
+            "description": "Records the exact date of pathological confirmation of invasive carcinoma in the contralateral breast"
+        },
+        {
+            "name": "pd_second_primary",
+            "type": "varchar(255)",
+            "label": "Second Primary Invasive Cancer (nonbreast)?",
+            "description": "Indicates whether the patient has developed any histologically confirmed invasive primary malignancy (excluding contralateral breast cancer)"
+        },
+        {
+            "name": "pd_second_primary_date",
+            "type": "date",
+            "label": "Second Primary Invasive Cancer (nonbreast) date",
+            "description": "Records the exact date of pathological confirmation of any invasive primary malignancy (excluding contralateral breast cancer)"
+        },
+        {
+            "name": "pd_crpc_yesno",
+            "type": "varchar(255)",
+            "label": "Resistance to castration?",
+            "description": "Indicates whether the patient with prostate cancer has developed castration-resistant prostate cancer (CRPC), defined as disease progression (rising PSA, radiographic progression, or clinical worsening) despite castrate testosterone levels (<50 ng/dL or <1.7 nmol/L) maintained by androgen deprivation therapy"
+        },
+        {
+            "name": "pd_firstmets_yesno",
+            "type": "varchar(255)",
+            "label": "Patient developed metastasis? ",
+            "description": "Indicates whether the patient has developed histologically or radiologically confirmed distant metastatic disease (M1 staging) at any point during their cancer history"
+        },
+        {
+            "name": "pd_crpc_date",
+            "type": "date",
+            "label": "Date of CRPC",
+            "description": "Records the exact date when castration-resistant prostate cancer (CRPC) was confirmed"
+        },
+        {
+            "name": "pd_firstmets_date",
+            "type": "date",
+            "label": "Date of First Metastasis",
+            "description": "Records the exact date of pathological or radiological confirmation of the first distant metastatic lesion (M1 disease)"
+        }
+    ]
+  }
+]

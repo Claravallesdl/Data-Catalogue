@@ -1,0 +1,109 @@
+[
+  {
+    "name": "treatments_oral",
+    "columns": [
+        {
+            "name": "sap",
+            "type": "int",
+            "label": "SAP/NHC",
+            "description": ""
+        },
+        {
+            "name": "patient_name",
+            "type": "varchar(255)",
+            "label": "Nom",
+            "description": ""
+        },
+        {
+            "name": "patient_surname",
+            "type": "varchar(255)",
+            "label": "Cognom",
+            "description": ""
+        },
+        {
+            "name": "hospital_service",
+            "type": "varchar(100)",
+            "label": "Servei Hospitalari",
+            "description": ""
+        },
+        {
+            "name": "clinical_trial",
+            "type": "bit",
+            "label": "",
+            "description": ""
+        },
+        {
+            "name": "clinical_trial_short",
+            "type": "varchar(50)",
+            "label": "",
+            "description": ""
+        },
+        {
+            "name": "ttm_scheme",
+            "type": "varchar(255)",
+            "label": "Esquema",
+            "description": ""
+        },
+        {
+            "name": "ttm_intention",
+            "type": "varchar(255)",
+            "label": "Intención",
+            "description": ""
+        },
+        {
+            "name": "ttm_date",
+            "type": "date",
+            "label": "Data",
+            "description": ""
+        },
+        {
+            "name": "tumor",
+            "type": "varchar(255)",
+            "label": "Tumor",
+            "description": ""
+        },
+        {
+            "name": "pathology",
+            "type": "varchar(MAX)",
+            "label": "Patologia",
+            "description": ""
+        },
+        {
+            "name": "cycle",
+            "type": "int",
+            "label": "Cicle",
+            "description": ""
+        },
+        {
+            "name": "drug",
+            "type": "varchar(255)",
+            "label": "Medicació",
+            "description": ""
+        },
+        {
+            "name": "dose",
+            "type": "decimal",
+            "label": "Dosis",
+            "description": ""
+        },
+        {
+            "name": "unit",
+            "type": "varchar(50)",
+            "label": "Unitat",
+            "description": ""
+        },
+        {
+            "name": "boxes",
+            "type": "int",
+            "label": "Caixes",
+            "description": ""
+        },
+        {
+            "name": "ttm_curative",
+            "type": "varchar(50)",
+            "label": "",
+            "description": ""
+        }
+    ]
+  }
+]

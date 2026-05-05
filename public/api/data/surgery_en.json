@@ -1,0 +1,157 @@
+[
+  {
+    "name": "surgery",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "SAP code associated with the patient."
+        },
+        {
+            "name": "surg_date",
+            "type": "date",
+            "label": "Date of surgery",
+            "description": "Records the exact date when any surgical intervention on the primary solid tumor was performed."
+        },
+        {
+            "name": "surg_procedure_type",
+            "type": "varchar(255)",
+            "label": "Procedure type",
+            "description": "Binary categorical field distinguishing between diagnostic stereotactic biopsy versus therapeutic surgical excision/resection of primary brain tumors."
+        },
+        {
+            "name": "surg_hospital",
+            "type": "varchar(255)",
+            "label": "Surgery Hospital name",
+            "description": "Free-text field capturing the exact name of the hospital or surgical center where primary tumor surgery occurred."
+        },
+        {
+            "name": "surg_biopsy_id",
+            "type": "varchar(255)",
+            "label": "Surgery Biopsy ID",
+            "description": "Unique identifier assigned to the pathology specimen obtained during primary tumor surgery (from surgical pathology report)."
+        },
+        {
+            "name": "surg_location",
+            "type": "varchar(255)",
+            "label": "Surgery location",
+            "description": "Multi-select checkbox field specifying all anatomical sites surgically intervened during primary tumor resection."
+        },
+        {
+            "name": "surg_location_other",
+            "type": "varchar(255)",
+            "label": "Other surgery location",
+            "description": "Free-text field to document anatomical sites surgically intervened not covered by standard checkbox options."
+        },
+        {
+            "name": "surg_post_status",
+            "type": "varchar(255)",
+            "label": "Post-surgical disease status",
+            "description": "Binary assessment from surgical pathology report and/or post-operative imaging documenting complete resection (R0/no residual tumor) versus incomplete resection (R1/R2/residual tumor present) following primary tumor surgery."
+        },
+        {
+            "name": "surg_exploratory_laparotomy",
+            "type": "varchar(255)",
+            "label": "Exploratory laparatomy performed?",
+            "description": "Binary indicator documenting whether an exploratory laparotomy (open abdominal surgery for intra-abdominal inspection, biopsy, or staging) was performed as part of primary tumor assessment or diagnostic workup across abdominal/pelvic solid tumors."
+        },
+        {
+            "name": "surg_invasion",
+            "type": "varchar(255)",
+            "label": "Invasion",
+            "description": "Multi-select checkbox field documenting specific microvascular invasion patterns identified in the surgical pathology specimen (lymphatic, perineural, venous)."
+        },
+        {
+            "name": "surg_tumor_budding",
+            "type": "varchar(255)",
+            "label": "Tumor budding",
+            "description": "Single-select radio button field documenting tumor budding grade at the invasive front per ITBCC 2016 consensus guidelines from surgical pathology report, using refined 4-tier system (Bd0-Bd3) for colorectal and other epithelial cancers."
+        },
+        {
+            "name": "surg_pt",
+            "type": "varchar(255)",
+            "label": "pT category",
+            "description": "Single-select documenting pathological primary tumor category (pT) from surgical pathology report, quantifying extent of primary tumor invasion through basement membrane into surrounding tissues."
+        },
+        {
+            "name": "surg_pn",
+            "type": "varchar(255)",
+            "label": "pN category",
+            "description": "Single-select documenting pathological regional lymph node category (pN) from surgical pathology report, quantifying number and morphology of metastatic lymph nodes examined."
+        },
+        {
+            "name": "surg_pm",
+            "type": "varchar(255)",
+            "label": "pM category",
+            "description": "Single-select documenting pathological distant metastasis category (pM) from surgical pathology report, confirming histologically verified distant metastatic deposits identified during primary tumor resection."
+        },
+        {
+            "name": "surg_tnm_stage",
+            "type": "varchar(255)",
+            "label": "TNM stage at diagnosis",
+            "description": "Single-select specifying the complete pathological TNM stage group determined from surgical pathology report."
+        },
+        {
+            "name": "surg_regression_grade",
+            "type": "varchar(255)",
+            "label": "Regression grade (GR)",
+            "description": "Single-select categorical field documenting tumor regression grade in surgical pathology specimen following neoadjuvant treatment."
+        },
+        {
+            "name": "surg_resection_grade",
+            "type": "varchar(255)",
+            "label": "Resection",
+            "description": "Single-select categorical field documenting surgical margin status from surgical pathology report, classifying completeness of primary tumor resection (R0 microscopic clearance vs R1/R2 residual disease)."
+        },
+        {
+            "name": "surg_pcr",
+            "type": "varchar(255)",
+            "label": "pCR achived?",
+            "description": "Binary indicator confirming pathological complete response (pCR = ypT0/Tis ypN0) in surgical pathology specimen following neoadjuvant chemotherapy ± radiotherapy."
+        },
+        {
+            "name": "surg_type",
+            "type": "varchar(255)",
+            "label": "Surgery type",
+            "description": "Single-select radio button field specifying the exact surgical procedure performed on the primary tumor."
+        },
+        {
+            "name": "surg_type_other",
+            "type": "varchar(255)",
+            "label": "Other surgery type",
+            "description": "Free-text field to document surgical procedures not covered by standardized radio button options."
+        },
+        {
+            "name": "ttm_crs",
+            "type": "varchar(255)",
+            "label": "CRS",
+            "description": "Single-select radio button field documenting Chemotherapy Response Score (CRS) in omental/ovarian specimens from interval debulking surgery following neoadjuvant chemotherapy."
+        },
+        {
+            "name": "surg_gc",
+            "type": "varchar(255)",
+            "label": "Result of GC after surgery",
+            "description": "Binary indicator documenting Sentinel Lymph Node Biopsy (SLNB) pathological result after primary tumor surgery."
+        },
+        {
+            "name": "surg_rcb",
+            "type": "varchar(255)",
+            "label": "RCB",
+            "description": "Single-select categorical field documenting Residual Cancer Burden (RCB) index class (0-III) in breast cancer surgical pathology specimen following neoadjuvant chemotherapy."
+        },
+        {
+            "name": "surg_adp",
+            "type": "varchar(255)",
+            "label": "ADP  (number of nodes identified)",
+            "description": "Integer field documenting the total number of axillary lymph nodes pathologically examined and identified in the surgical pathology specimen."
+        },
+        {
+            "name": "surg_adp_invaded",
+            "type": "varchar(255)",
+            "label": "Invaded ADP (number of invaded nodes)",
+            "description": "Integer field quantifying the exact number of axillary lymph nodes pathologically confirmed as metastatic."
+        }
+    ]
+  }
+]

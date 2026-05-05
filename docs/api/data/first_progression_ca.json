@@ -1,0 +1,151 @@
+[
+  {
+    "name": "first_progression",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Codi SAP associat al pacient."
+        },
+        {
+            "name": "pd_stat",
+            "type": "varchar(255)",
+            "label": "El pacient ha progressat?",
+            "description": "Indica si la pacient ha experimentat progressió de la malaltia"
+        },
+        {
+            "name": "pd_date",
+            "type": "date",
+            "label": "Data de progressió",
+            "description": "Registra la data exacta quan es va confirmar la progressió de la malaltia"
+        },
+        {
+            "name": "pd_num_sites",
+            "type": "varchar(255)",
+            "label": "Nº localitzacions en la primera progressió",
+            "description": "Registra el nombre total de llocs anatòmics diferents (òrgans/regions) amb progressió de malaltia confirmada al primer esdeveniment documentat de progressió"
+        },
+        {
+            "name": "pd_loc",
+            "type": "varchar(255)",
+            "label": "Localització de la primera progressió",
+            "description": "Documenta tots els llocs anatòmics amb progressió de malaltia confirmada, utilitzant checkboxes de selecció múltiple per caracterització completa del patró metastàtic"
+        },
+        {
+            "name": "pd_location_other",
+            "type": "varchar(255)",
+            "label": "Altra localització  primera progressió",
+            "description": "Camp de text lliure per documentar llocs anatòmics de primera progressió no coberts per opcions estàndard de checkbox"
+        },
+        {
+            "name": "pd_locoregional",
+            "type": "varchar(255)",
+            "label": "Recurrència locoregional?",
+            "description": "Indica si el primer esdeveniment de progressió representa recurrència aïllada en lloc primari ipsilateral, ganglis limfàtics regionals o estructures adjacents (sense metàstasi a distància), distingint locorregional de progressió metastàsica sistèmica en tots els tumors sòlids"
+        },
+        {
+            "name": "pd_locoregional_site",
+            "type": "varchar(255)",
+            "label": "Localització de la recurrència locoregional",
+            "description": "Classifica localitzacions de recurrència locorregional confirmada en tots els tumors sòlids com a \"local\" (lloc tumoral primari ipsilateral/cicatriu) o \"regional\" (ganglis adjacents)"
+        },
+        {
+            "name": "pd_locoregional_date",
+            "type": "date",
+            "label": "Data de recurrència locoregional",
+            "description": "Registra la data exacta de confirmació patològica o radiológica de recurrència locorregional"
+        },
+        {
+            "name": "pd_distant",
+            "type": "varchar(255)",
+            "label": "Recurrència distant?",
+            "description": "Indica si el primer esdeveniment de progressió representa recurrència metastàsica distant (malaltia M1)"
+        },
+        {
+            "name": "pd_distant_site",
+            "type": "varchar(255)",
+            "label": "Localització de la recurrència distant",
+            "description": "Documenta tots els llocs anatòmics confirmats de recurrència metastàsica distant (malaltia M1)"
+        },
+        {
+            "name": "pd_distant_site_other",
+            "type": "varchar(255)",
+            "label": "Altres localitzacions de recurrència distant",
+            "description": "Camp de text lliure per documentar llocs anatòmics de recurrència metastàsica distant (malaltia M1) no coberts per opcions estàndard de checkbox"
+        },
+        {
+            "name": "pd_distant_date",
+            "type": "date",
+            "label": "Data de la recurrència distant",
+            "description": "Registra la data exacta de confirmació patològica o radiològica de recurrència metastàsica distant (malaltia M1)"
+        },
+        {
+            "name": "pd_ecog",
+            "type": "varchar(255)",
+            "label": "ECOG a la primera progressió",
+            "description": "Registra el valor de l'escala d'estat de performance Eastern Cooperative Oncology Group (ECOG) avaluat en el moment de confirmació de primera progressió de malaltia"
+        },
+        {
+            "name": "pd_loc_cumulative",
+            "type": "varchar(255)",
+            "label": "Nºlocalitzacions metastàsiques durant el curs de la malaltia",
+            "description": "Registra el total acumulatiu de llocs anatòmics diferents amb compromís metastàtic al llarg de tot el curs de la malaltia per a tots els tumors sòlids, comptant cada òrgan/regió única una sola vegada independentment de múltiples esdeveniments de progressió o línies de tractament."
+        },
+        {
+            "name": "pd_loc_cumulative_other",
+            "type": "varchar(255)",
+            "label": "Altres localitzacions metastàsiques durant el curs de la malaltia",
+            "description": "Camp de text lliure per documentar llocs anatòmics de compromís metastàtic en tots els tumors sòlids no coberts per opcions estàndard de checkbox"
+        },
+        {
+            "name": "pd_controlateral_breast",
+            "type": "varchar(255)",
+            "label": "Càncer de mama contralateral invasiu?",
+            "description": "Indica si la pacient ha desenvolupat carcinoma invasiu histològicament confirmat a la mama contralateral, representant una segona malignitat mamària primària"
+        },
+        {
+            "name": "pd_controlateral_breast_date",
+            "type": "date",
+            "label": "Data del càncer de mama contralateral invasiu",
+            "description": "Registra la data exacta de confirmació patològica de carcinoma invasiu a la mama contralateral"
+        },
+        {
+            "name": "pd_second_primary",
+            "type": "varchar(255)",
+            "label": "Segon càncer primari invasiu (no mama)?",
+            "description": "Indica si la pacient ha desenvolupat qualsevol malignitat primària invasiva histològicament confirmada (excloent càncer de mama contralateral)"
+        },
+        {
+            "name": "pd_second_primary_date",
+            "type": "date",
+            "label": "Data del segon càncer primari invasiu (no mama)",
+            "description": "Registra la data exacta de confirmació patològica de qualsevol malignitat primària invasiva (excloent càncer de mama contralateral)"
+        },
+        {
+            "name": "pd_crpc_yesno",
+            "type": "varchar(255)",
+            "label": "Resistència a la castració?",
+            "description": "Indica si el pacient amb càncer de pròstata ha desenvolupat càncer de pròstata resistent a la castració (CRPC), definit com a progressió de malaltia (augment de PSA, progressió radiogràfica o empitjorament clínic) malgrat mantenir nivells de testosterona castrants (<50 ng/dL o <1.7 nmol/L) mitjançant teràpia de privació androgènica"
+        },
+        {
+            "name": "pd_firstmets_yesno",
+            "type": "varchar(255)",
+            "label": "El pacient ha desenvolupat metàstasi?",
+            "description": "Indica si el pacient ha desenvolupat malaltia metastàtica distant (estadificació M1) confirmada histològicament o radiogràficament en qualsevol moment del seu historial de càncer"
+        },
+        {
+            "name": "pd_crpc_date",
+            "type": "date",
+            "label": "Data de CRPC",
+            "description": "Registra la data exacta quan es va confirmar el càncer de pròstata resistent a la castració (CRPC)"
+        },
+        {
+            "name": "pd_firstmets_date",
+            "type": "date",
+            "label": "Data de la primera metàstasi",
+            "description": "Registra la data exacta de confirmació patològica o radiològica de la primera lesió metastàtica distant (malaltia M1)"
+        }
+    ]
+  }
+]

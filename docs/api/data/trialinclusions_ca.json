@@ -1,0 +1,121 @@
+[
+  {
+    "name": "trialinclusions",
+    "columns": [
+        {
+            "name": "identification_code",
+            "type": "nvarchar(20)",
+            "label": "",
+            "description": ""
+        },
+        {
+            "name": "instit_id",
+            "type": "nvarchar(MAX)",
+            "label": "",
+            "description": ""
+        },
+        {
+            "name": "phase",
+            "type": "nvarchar(50)",
+            "label": "Fase de l’assaig clínic",
+            "description": ""
+        },
+        {
+            "name": "sap",
+            "type": "int",
+            "label": "SAP/NHC",
+            "description": ""
+        },
+        {
+            "name": "patient_study_id",
+            "type": "nvarchar(100)",
+            "label": "ID pacient en l'assaig",
+            "description": ""
+        },
+        {
+            "name": "randomization_number",
+            "type": "nvarchar(MAX)",
+            "label": "Número d’aleatorització",
+            "description": ""
+        },
+        {
+            "name": "name",
+            "type": "nvarchar(MAX)",
+            "label": "Nom",
+            "description": ""
+        },
+        {
+            "name": "first_surname",
+            "type": "nvarchar(MAX)",
+            "label": "Primer cognom",
+            "description": ""
+        },
+        {
+            "name": "second_surname",
+            "type": "nvarchar(MAX)",
+            "label": "Segon cognom",
+            "description": ""
+        },
+        {
+            "name": "classification",
+            "type": "nvarchar(MAX)",
+            "label": "Classificació criteris d’inclusió de l’assaig",
+            "description": ""
+        },
+        {
+            "name": "patient_status",
+            "type": "nvarchar(MAX)",
+            "label": "Estat del pacient",
+            "description": ""
+        },
+        {
+            "name": "branch",
+            "type": "nvarchar(MAX)",
+            "label": "Branca de l'assaig",
+            "description": ""
+        },
+        {
+            "name": "referred",
+            "type": "nvarchar(MAX)",
+            "label": "Pacient derivat?",
+            "description": ""
+        },
+        {
+            "name": "reference_center",
+            "type": "nvarchar(MAX)",
+            "label": "Centre de referència",
+            "description": ""
+        },
+        {
+            "name": "consent_status",
+            "type": "nvarchar(MAX)",
+            "label": "Estat del consentiment",
+            "description": ""
+        },
+        {
+            "name": "start_date",
+            "type": "date",
+            "label": "Data inicio",
+            "description": ""
+        },
+        {
+            "name": "last_dose_date",
+            "type": "date",
+            "label": "Data última dosi",
+            "description": ""
+        },
+        {
+            "name": "end_reason",
+            "type": "nvarchar(MAX)",
+            "label": "Motiu finalització",
+            "description": ""
+        },
+        {
+            "name": "other_end_reason",
+            "type": "nvarchar(MAX)",
+            "label": "Altres motius finalització no llistats",
+            "description": ""
+        }
+    ]
+  }
+]
