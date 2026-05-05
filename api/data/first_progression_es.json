@@ -1,0 +1,151 @@
+[
+  {
+    "name": "first_progression",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Código SAP del paciente"
+        },
+        {
+            "name": "pd_stat",
+            "type": "varchar(255)",
+            "label": "¿El paciente ha progresado?",
+            "description": "Indica si la paciente ha experimentado progresión de la enfermedad"
+        },
+        {
+            "name": "pd_date",
+            "type": "date",
+            "label": "Fecha de progresión",
+            "description": "Registra la fecha exacta cuando se confirmó la progresión de la enfermedad"
+        },
+        {
+            "name": "pd_num_sites",
+            "type": "varchar(255)",
+            "label": "Nº localizaciones primera progresión",
+            "description": "Registra el número total de localizaciones anatómicas distintas (órganos/regiones) con progresión de enfermedad confirmada en el primer evento documentado de progresión"
+        },
+        {
+            "name": "pd_loc",
+            "type": "varchar(255)",
+            "label": "Localización primera progresión",
+            "description": "Documenta todos los sitios anatómicos con progresión de enfermedad confirmada, usando checkboxes de selección múltiple para caracterización completa del patrón metastásico"
+        },
+        {
+            "name": "pd_location_other",
+            "type": "varchar(255)",
+            "label": "Otra localización primera progresión",
+            "description": "Campo de texto libre para documentar localizaciones anatómicas de primera progresión no cubiertas por opciones estándar de checkbox"
+        },
+        {
+            "name": "pd_locoregional",
+            "type": "varchar(255)",
+            "label": "¿Recurrencia locorregional?",
+            "description": "Indica si el primer evento de progresión representa recurrencia aislada en sitio primario ipsilateral, ganglios linfáticos regionales o estructuras adyacentes (sin metástasis a distancia), distinguiendo locorregional de progresión metastásica sistémica en todos los tumores sólidos"
+        },
+        {
+            "name": "pd_locoregional_site",
+            "type": "varchar(255)",
+            "label": "Localización recurrencia locorregional",
+            "description": "Clasifica localizaciones de recurrencia locorregional confirmada en todos los tumores sólidos como \"local\" (lecho tumoral primario ipsilateral/cicatriz) o \"regional\" (ganglios adyacentes)"
+        },
+        {
+            "name": "pd_locoregional_date",
+            "type": "date",
+            "label": "Fecha recurrencia locorregional",
+            "description": "Registra la fecha exacta de confirmación patológica o radiológica de recurrencia locorregional"
+        },
+        {
+            "name": "pd_distant",
+            "type": "varchar(255)",
+            "label": "¿Recurrencia distante?",
+            "description": "Indica si el primer evento de progresión representa recurrencia metastásica distante (enfermedad M1)"
+        },
+        {
+            "name": "pd_distant_site",
+            "type": "varchar(255)",
+            "label": "Localización recurrencia distante",
+            "description": "Documenta todos los sitios anatómicos confirmados de recurrencia metastásica distante (enfermedad M1)"
+        },
+        {
+            "name": "pd_distant_site_other",
+            "type": "varchar(255)",
+            "label": "Otra localización recurrencia distante",
+            "description": "Campo de texto libre para documentar sitios anatómicos de recurrencia metastásica distante (enfermedad M1) no cubiertos por opciones estándar de checkbox"
+        },
+        {
+            "name": "pd_distant_date",
+            "type": "date",
+            "label": "Fecha recurrencia distante",
+            "description": "Registra la fecha exacta de confirmación patológica o radiológica de recurrencia metastásica distante (enfermedad M1)"
+        },
+        {
+            "name": "pd_ecog",
+            "type": "varchar(255)",
+            "label": "ECOG primera progresión",
+            "description": "Registra el valor de la escala de estado de performance Eastern Cooperative Oncology Group (ECOG) evaluado en el momento de confirmación de primera progresión de enfermedad"
+        },
+        {
+            "name": "pd_loc_cumulative",
+            "type": "varchar(255)",
+            "label": "Nº localizaciones metastásicas durante el curso de la enfermedad",
+            "description": "Registra el total acumulativo de sitios anatómicos distintos con compromiso metastásico a lo largo de todo el curso de la enfermedad para todos los tumores sólidos, contando cada órgano/región única una sola vez independientemente de múltiples eventos de progresión o líneas de tratamiento."
+        },
+        {
+            "name": "pd_loc_cumulative_other",
+            "type": "varchar(255)",
+            "label": "Otra localización metastásica durante el curso de la enfermedad",
+            "description": "Campo de texto libre para documentar sitios anatómicos de compromiso metastásico en todos los tumores sólidos no cubiertos por opciones estándar de checkbox"
+        },
+        {
+            "name": "pd_controlateral_breast",
+            "type": "varchar(255)",
+            "label": "¿Cáncer de mama contralateral invasivo?",
+            "description": "Indica si la paciente ha desarrollado carcinoma invasivo histológicamente confirmado en la mama contralateral, representando una segunda malignidad mamaria primaria"
+        },
+        {
+            "name": "pd_controlateral_breast_date",
+            "type": "date",
+            "label": "Fecha cáncer de mama contralateral invasivo",
+            "description": "Registra la fecha exacta de confirmación patológica de carcinoma invasivo en la mama contralateral"
+        },
+        {
+            "name": "pd_second_primary",
+            "type": "varchar(255)",
+            "label": "¿Segundo cáncer primario invasivo (no mama)?",
+            "description": "Indica si la paciente ha desarrollado cualquier malignidad primaria invasiva histológicamente confirmada (excluyendo cáncer de mama contralateral) "
+        },
+        {
+            "name": "pd_second_primary_date",
+            "type": "date",
+            "label": "Fecha segundo cáncer primario invasivo (no mama)",
+            "description": "Registra la fecha exacta de confirmación patológica de cualquier malignidad primaria invasiva (excluyendo cáncer de mama contralateral) "
+        },
+        {
+            "name": "pd_crpc_yesno",
+            "type": "varchar(255)",
+            "label": "¿Resistencia a la castración?",
+            "description": "Indica si el paciente con cáncer de próstata ha desarrollado cáncer de próstata resistente a la castración (CRPC), definido como progresión de enfermedad (aumento de PSA, progresión radiográfica o empeoramiento clínico) a pesar de mantener niveles de testosterona castrantes (<50 ng/dL o <1.7 nmol/L) mediante terapia de privación androgénica"
+        },
+        {
+            "name": "pd_firstmets_yesno",
+            "type": "varchar(255)",
+            "label": "¿El paciente desarrolló metástasis?",
+            "description": "Indica si el paciente ha desarrollado enfermedad metastásica distante (estadificación M1) confirmada histológicamente o radiológicamente en cualquier momento de su historial de cáncer"
+        },
+        {
+            "name": "pd_crpc_date",
+            "type": "date",
+            "label": "Fecha de CRPC",
+            "description": "Registra la fecha exacta cuando se confirmó el cáncer de próstata resistente a la castración (CRPC)"
+        },
+        {
+            "name": "pd_firstmets_date",
+            "type": "date",
+            "label": "Fecha de la primera metástasis",
+            "description": "Registra la fecha exacta de confirmación patológica o radiológica de la primera lesión metastásica distante (enfermedad M1) "
+        }
+    ]
+  }
+]

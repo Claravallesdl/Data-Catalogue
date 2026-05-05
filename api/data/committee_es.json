@@ -1,0 +1,43 @@
+[
+  {
+    "name": "committee",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Código SAP del paciente."
+        },
+        {
+            "name": "committee",
+            "type": "varchar(255)",
+            "label": "Presentado en comité",
+            "description": "Indica si el caso ha sido presentado en un comité multidisciplinar o comité de revisión."
+        },
+        {
+            "name": "committee_type",
+            "type": "varchar(255)",
+            "label": "Tipo de comité",
+            "description": "Indica si el caso fue mencionado o discutido."
+        },
+        {
+            "name": "committee_date",
+            "type": "date",
+            "label": "Fecha de presentación en comité",
+            "description": "Fecha en la que el caso fue presentado en el comité."
+        },
+        {
+            "name": "committee_decision",
+            "type": "varchar(255)",
+            "label": "Decisión del comité",
+            "description": "Indica la decisión o recomendación adoptada por el comité respecto al caso."
+        },
+        {
+            "name": "committee_other",
+            "type": "varchar(255)",
+            "label": "Otra decisión del comité",
+            "description": "Otra decisión no listada anteriormente."
+        }
+    ]
+  }
+]
