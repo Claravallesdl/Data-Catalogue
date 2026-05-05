@@ -1,9 +1,0 @@
-[
-  {
-    "name": "trials",
-    "columns": [
-       { "name": "trial_id", "label": "Trial ID", "type": "VARCHAR", "description": "NCT ID or internal identifier.", "isPK": true },
-       { "name": "trial_phase", "label": "Phase", "type": "VARCHAR", "description": "Phase of the clinical trial." }
-    ]
-  }
-]

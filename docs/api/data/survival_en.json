@@ -1,9 +1,0 @@
-[
-  {
-    "name": "survival",
-    "columns": [
-      { "name": "surv_status", "label": "Vital Status", "type": "VARCHAR", "description": "Current status of the patient (Alive/Dead)." },
-      { "name": "surv_os_months", "label": "OS Months", "type": "DECIMAL", "description": "Overall survival in months from diagnosis." }
-    ]
-  }
-]
