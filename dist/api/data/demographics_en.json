@@ -1,0 +1,247 @@
+[
+  {
+    "name": "demographics",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "SAP code associated with the patient."
+        },
+        {
+            "name": "dem_tumor_type",
+            "type": "varchar(255)",
+            "label": "Tumor type",
+            "description": "Indicates tumor type."
+        },
+        {
+            "name": "dem_name",
+            "type": "varchar(255)",
+            "label": "Name and Surnames",
+            "description": "Name and surnames of the patient."
+        },
+        {
+            "name": "dem_birthdate",
+            "type": "date",
+            "label": "Date of birth",
+            "description": "Birth date of the patient."
+        },
+        {
+            "name": "dem_gender",
+            "type": "varchar(255)",
+            "label": "Gender",
+            "description": "Gender of the patient."
+        },
+        {
+            "name": "dem_date_first_visit",
+            "type": "date",
+            "label": "Date first visit",
+            "description": "Date of first visit at Medical Oncology department."
+        },
+        {
+            "name": "dem_date_first_visit_sarcoma",
+            "type": "date",
+            "label": "Date of first visit (Sarcoma unit)",
+            "description": "Date of first visit at Sarcoma Unit."
+        },
+        {
+            "name": "dem_first_visit_type",
+            "type": "varchar(255)",
+            "label": "Type of fisrt visit",
+            "description": "Select how the patient’s first visit was conducted: In person or  Remote / Online."
+        },
+        {
+            "name": "dem_primary_point_entry",
+            "type": "varchar(255)",
+            "label": "Primary point of entry",
+            "description": "Primary point of entry refers to the main source or pathway through which the patient first accessed the service or was referred into the program or study. It identifies who or what initiated the patient’s entry (e.g., primary care physician, tumor board, another hospital, or the patient themselves)."
+        },
+        {
+            "name": "dem_age_at_first_visit",
+            "type": "numeric",
+            "label": "Age at first visit",
+            "description": "Age at first visit."
+        },
+        {
+            "name": "dem_aya",
+            "type": "varchar(255)",
+            "label": "AYA?",
+            "description": "This variable typically indicates whether the patient belongs to the AYA population, distinguishing them from pediatric (<15) or older adult (>39) groups for tailored study analysis or care pathways."
+        },
+        {
+            "name": "dem_physician",
+            "type": "varchar(255)",
+            "label": "Physiscian",
+            "description": "Physician's name."
+        },
+        {
+            "name": "dem_ethnicity",
+            "type": "varchar(255)",
+            "label": "Ethnicity",
+            "description": "Ethnicity refers to a patient's self-identified cultural or ancestral group, based on shared attributes like language, traditions, ancestry, religion, or national origin."
+        },
+        {
+            "name": "dem_menopausal_stat",
+            "type": "varchar(255)",
+            "label": "Menopausal status",
+            "description": "Menopausal status classifies a female patient's reproductive stage based on menstrual history, hormone levels (e.g., FSH), or clinical criteria."
+        },
+        {
+            "name": "dem_cancer_during_pregnancy",
+            "type": "varchar(255)",
+            "label": " Cancer diagnosed during pregnancy?",
+            "description": "Identify cases where malignancy was detected while the patient was pregnant."
+        },
+        {
+            "name": "dem_cancer_during_breastfeed",
+            "type": "varchar(255)",
+            "label": "Cancer diagnosed during breastfeeding?",
+            "description": "Identify cases where malignancy was detected while the patient was giving breastfeeding."
+        },
+        {
+            "name": "dem_tpal",
+            "type": "varchar(255)",
+            "label": "TPAL",
+            "description": "An obstetric scoring system summarizing a woman's pregnancy history."
+        },
+        {
+            "name": "dem_abortion_12m",
+            "type": "varchar(255)",
+            "label": "Abortion 12 months prior to diagnosis of breast cancer?",
+            "description": "Indicates whether the patient had an abortion (spontaneous or induced) within the 12 months prior to the date of breast cancer diagnosis."
+        },
+        {
+            "name": "dem_breastfeed",
+            "type": "varchar(255)",
+            "label": "Has the patient been breastfeeding?",
+            "description": "Indicates whether the patient has engaged in breastfeeding (lactation and feeding breast milk to an infant) at any relevant time, typically in the context of reproductive or cancer history."
+        },
+        {
+            "name": "dem_breastfeed_last_duration",
+            "type": "numeric",
+            "label": "Breastfeeding months (last child)",
+            "description": "Duration of breastfeeding last child (months)."
+        },
+        {
+            "name": "dem_origin",
+            "type": "varchar(255)",
+            "label": "Hospital Origin",
+            "description": "Indicates whether the patient belongs to Vall d'Hebron or to another hospital."
+        },
+        {
+            "name": "dem_hospital_origin",
+            "type": "varchar(255)",
+            "label": "Hospital Reference",
+            "description": "Identifies the specific hospital or medical center where the patient was first admitted, diagnosed, or treated for the condition (e.g., breast cancer), used for tracking referral sources in clinical studies."
+        },
+        {
+            "name": "dem_province",
+            "type": "varchar(255)",
+            "label": "Hospital Province",
+            "description": "Specifies the administrative province of residence, diagnosis, or treatment for the patient, based on Spain's 50 provinces for geographic stratification in clinical studies."
+        },
+        {
+            "name": "dem_uitm_comunidad_autonoma",
+            "type": "varchar(255)",
+            "label": "Hospital Autonomic Comunity",
+            "description": "Identifies the autonomous community of patient residence, diagnosis, or treatment, one of Spain's 17 autonomous communities plus 2 autonomous cities."
+        },
+        {
+            "name": "dem_consorcium",
+            "type": "varchar(255)",
+            "label": "SNS consorcium",
+            "description": "Classifies the hospital or healthcare center (origin or reference) as public (government-funded) or private."
+        },
+        {
+            "name": "dem_area_reference",
+            "type": "varchar(255)",
+            "label": "Area of reference",
+            "description": "Classifies the geographic scope or referral area of the patient's hospital/treatment center using a hierarchical system, with Vall d'Hebron as the primary local reference and expanding to international levels."
+        },
+        {
+            "name": "dem_country",
+            "type": "varchar(255)",
+            "label": "Country",
+            "description": "Specifies the European country of origin or residence for patients from EU/non-Spanish Europe, used in conjunction with \"Area of reference: eu\" for international patient stratification."
+        },
+        {
+            "name": "dem_country_other",
+            "type": "varchar(255)",
+            "label": "Other Country (outside Europe)",
+            "description": "Records the specific non-European country of patient origin or residence when Area of reference = \"outside_eu\"."
+        },
+        {
+            "name": "dem_reference",
+            "type": "varchar(255)",
+            "label": "Reference type",
+            "description": "Classifies the reason or pathway for patient referral to the reference hospital (Vall d'Hebron), distinguishing new cases from referrals or second opinions in oncology care networks."
+        },
+        {
+            "name": "dem_referrall_network",
+            "type": "varchar(255)",
+            "label": "Referrall network",
+            "description": "Identifies the institutional network or sector from which the patient was referred when Reference type = \"referall\", focusing on Catalonia's healthcare system."
+        },
+        {
+            "name": "dem_intention_visit",
+            "type": "varchar(255)",
+            "label": "Intention first visit",
+            "description": "Classifies the primary purpose of the patient's initial consultation at the reference center (Vall d'Hebron), distinguishing standard treatment from research protocols or consultative services in oncology care pathways."
+        },
+        {
+            "name": "dem_therapeutical_action",
+            "type": "varchar(255)",
+            "label": "Therpeuctical attitude first visit",
+            "description": "Documents the clinical decision or therapeutic approach decided during the patient's initial consultation at the reference center, capturing treatment initiation, observation strategy, or palliative focus in oncology care pathways."
+        },
+        {
+            "name": "dem_pt_type",
+            "type": "varchar(255)",
+            "label": "Type of patient",
+            "description": "Classifies patients by treatment center and disease stage at first visit to Vall d'Hebron oncology, distinguishing local (VH) vs. referral (REF) patients and early-stage vs. metastatic disease."
+        },
+        {
+            "name": "dem_trial_stat",
+            "type": "varchar(255)",
+            "label": "Patient enrolled into  a clinical trial?",
+            "description": "Indicates whether the patient has formally enrolled in a clinical trial after first visit."
+        },
+        {
+            "name": "dem_trial_name",
+            "type": "varchar(255)",
+            "label": "Clinical Trial Name",
+            "description": "Records the specific name, acronym, or protocol identifier of the clinical trial."
+        },
+        {
+            "name": "dem_trial_phase",
+            "type": "varchar(255)",
+            "label": "Clinical Trial Phase",
+            "description": "Specifies the development phase of the clinical trial."
+        },
+        {
+            "name": "dem_tto_prev_lines",
+            "type": "varchar(255)",
+            "label": "Previous treatment lines",
+            "description": "Records the total number of distinct prior systemic anticancer treatment regimens (chemotherapy, targeted therapy, immunotherapy) received before the first visit at Vall d'Hebron."
+        },
+        {
+            "name": "dem_other_tumors",
+            "type": "varchar(255)",
+            "label": "Previous cancer",
+            "description": "Indicates whether the patient has a documented history of any malignant neoplasm (other than the current cancer diagnosis) prior to the first visit at Vall d'Hebron, including successfully treated basal/squamous cell carcinomas if clinically relevant."
+        },
+        {
+            "name": "dem_family_history",
+            "type": "varchar(255)",
+            "label": "Family history of cancer",
+            "description": "Indicates whether the patient has first-degree relatives (parents, siblings, children) or second-degree relatives (grandparents, aunts/uncles, nieces/nephews) with a history of cancer relevant to cancer risk assessment."
+        },
+        {
+            "name": "dem_family_history_details",
+            "type": "varchar(255)",
+            "label": "Family history of cancer details",
+            "description": "Provides detailed documentation of family cancer history when \"Family history of cancer = Yes\", including relative's relationship, cancer type(s)."
+        }
+    ]
+  }
+]

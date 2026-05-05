@@ -1,0 +1,37 @@
+[
+  {
+    "name": "project_information",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Codi SAP associat al pacient."
+        },
+        {
+            "name": "project_stat",
+            "type": "varchar(255)",
+            "label": "Pacient inclòs en algun projecte?",
+            "description": "Indica si la pacient està actualment inscrita en qualsevol projecte de recerca, estudi clínic, biobanc o iniciativa de medicina de precisió a VHIO o institucions col·laboradores."
+        },
+        {
+            "name": "project_enrollment",
+            "type": "varchar(255)",
+            "label": "Inclusió en projecte",
+            "description": "Camp de caselles de verificació de selecció múltiple que llista projectes de recerca específics."
+        },
+        {
+            "name": "project_name_other",
+            "type": "varchar(255)",
+            "label": "Altre projecte",
+            "description": "Camp de text lliure per especificar noms de projectes de recerca no llistats en les opcions de checkbox."
+        },
+        {
+            "name": "project_pro_id",
+            "type": "varchar(255)",
+            "label": "Informació del projecte - PRO ID",
+            "description": "Identificador alfanumèric únic assignat al projecte PRO."
+        }
+    ]
+  }
+]

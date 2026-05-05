@@ -1,0 +1,121 @@
+[
+  {
+    "name": "trialinclusions",
+    "columns": [
+        {
+            "name": "identification_code",
+            "type": "nvarchar(20)",
+            "label": "",
+            "description": ""
+        },
+        {
+            "name": "instit_id",
+            "type": "nvarchar(MAX)",
+            "label": "",
+            "description": ""
+        },
+        {
+            "name": "phase",
+            "type": "nvarchar(50)",
+            "label": "Clinical Trial Phase",
+            "description": ""
+        },
+        {
+            "name": "sap",
+            "type": "int",
+            "label": "SAP/NHC",
+            "description": ""
+        },
+        {
+            "name": "patient_study_id",
+            "type": "nvarchar(100)",
+            "label": "Patient Study ID",
+            "description": ""
+        },
+        {
+            "name": "randomization_number",
+            "type": "nvarchar(MAX)",
+            "label": "Randomization Number",
+            "description": ""
+        },
+        {
+            "name": "name",
+            "type": "nvarchar(MAX)",
+            "label": "Name",
+            "description": ""
+        },
+        {
+            "name": "first_surname",
+            "type": "nvarchar(MAX)",
+            "label": "First surname",
+            "description": ""
+        },
+        {
+            "name": "second_surname",
+            "type": "nvarchar(MAX)",
+            "label": "Second surname",
+            "description": ""
+        },
+        {
+            "name": "classification",
+            "type": "nvarchar(MAX)",
+            "label": "Trial Inclusion Criteria Classification",
+            "description": ""
+        },
+        {
+            "name": "patient_status",
+            "type": "nvarchar(MAX)",
+            "label": "Patient Status",
+            "description": ""
+        },
+        {
+            "name": "branch",
+            "type": "nvarchar(MAX)",
+            "label": "Trial Branch",
+            "description": ""
+        },
+        {
+            "name": "referred",
+            "type": "nvarchar(MAX)",
+            "label": "Patient Referred?",
+            "description": ""
+        },
+        {
+            "name": "reference_center",
+            "type": "nvarchar(MAX)",
+            "label": "Reference center",
+            "description": ""
+        },
+        {
+            "name": "consent_status",
+            "type": "nvarchar(MAX)",
+            "label": "Consent status",
+            "description": ""
+        },
+        {
+            "name": "start_date",
+            "type": "date",
+            "label": "Start date",
+            "description": ""
+        },
+        {
+            "name": "last_dose_date",
+            "type": "date",
+            "label": "Last dose date",
+            "description": ""
+        },
+        {
+            "name": "end_reason",
+            "type": "nvarchar(MAX)",
+            "label": "End reason",
+            "description": ""
+        },
+        {
+            "name": "other_end_reason",
+            "type": "nvarchar(MAX)",
+            "label": "Other end reason not listed",
+            "description": ""
+        }
+    ]
+  }
+]

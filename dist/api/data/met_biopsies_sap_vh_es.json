@@ -1,0 +1,37 @@
+[
+  {
+    "name": "met_biopsies_sap_vh",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Código SAP del paciente."
+        },
+        {
+            "name": "metbiopsy_id",
+            "type": "varchar(255)",
+            "label": "ID biopsia",
+            "description": "Registra el código específico de laboratorio o institucional que identifica de forma única una muestra de tejido obtenida mediante biopsia en todos los tumores sólidos, permitiendo seguimiento preciso de la muestra, correlación de análisis moleculares y vinculación con biobancos en flujos de trabajo de oncología de precisión."
+        },
+        {
+            "name": "metbiopsy_site",
+            "type": "varchar(255)",
+            "label": "Localización biopsia",
+            "description": "Especifica la localización anatómica precisa desde la cual se obtuvo la muestra de tejido por biopsia."
+        },
+        {
+            "name": "metbiopsy_site_other",
+            "type": "varchar(255)",
+            "label": "Otra localización biopsia",
+            "description": "Campo de texto libre para documentar localizaciones anatómicas precisas desde las cuales se obtuvieron muestras de tejido por biopsia en todos los tumores sólidos no cubiertas por opciones checkbox estándar."
+        },
+        {
+            "name": "metbiopsy_date",
+            "type": "date",
+            "label": "Fecha de recogida",
+            "description": "Registra la fecha exacta en que se recolectó físicamente la muestra de tejido por biopsia del paciente."
+        }
+    ]
+  }
+]

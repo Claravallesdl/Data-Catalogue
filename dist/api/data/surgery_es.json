@@ -1,0 +1,157 @@
+[
+  {
+    "name": "surgery",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Código SAP del paciente."
+        },
+        {
+            "name": "surg_date",
+            "type": "date",
+            "label": "Fecha de cirugía",
+            "description": "Registra la fecha exacta en que se realizó cualquier intervención quirúrgica en el tumor sólido primario."
+        },
+        {
+            "name": "surg_procedure_type",
+            "type": "varchar(255)",
+            "label": "Tipo procedimiento",
+            "description": "Campo categórico binario que distingue entre biopsia estereotáctica diagnóstica versus escisión/resección quirúrgica terapéutica de tumores cerebrales primarios."
+        },
+        {
+            "name": "surg_hospital",
+            "type": "varchar(255)",
+            "label": "Nombre hospital cirugía",
+            "description": "Campo de texto libre que captura el nombre exacto del hospital o centro quirúrgico donde ocurrió la cirugía del tumor primario."
+        },
+        {
+            "name": "surg_biopsy_id",
+            "type": "varchar(255)",
+            "label": "ID biopsia quirúrgica",
+            "description": "Identificador único asignado al espécimen patológico obtenido durante la cirugía del tumor primario (del informe de patología quirúrgica)."
+        },
+        {
+            "name": "surg_location",
+            "type": "varchar(255)",
+            "label": "Localización de la cirugía",
+            "description": "Campo de casillas de verificación de selección múltiple que especifica todos los sitios anatómicos intervenidos quirúrgicamente durante resección de tumor primario."
+        },
+        {
+            "name": "surg_location_other",
+            "type": "varchar(255)",
+            "label": "Otra localización de la cirugía",
+            "description": "Campo de texto libre para documentar sitios anatómicos intervenidos quirúrgicamente no cubiertos por opciones estándar de selección múltiple."
+        },
+        {
+            "name": "surg_post_status",
+            "type": "varchar(255)",
+            "label": "Estado enfermedad tras cirugía",
+            "description": "Evaluación binaria del informe de patología quirúrgica y/o imagen postoperatoria que documenta resección completa (R0/sin tumor residual) versus resección incompleta (R1/R2/tumor residual presente) tras cirugía de tumor primario."
+        },
+        {
+            "name": "surg_exploratory_laparotomy",
+            "type": "varchar(255)",
+            "label": "¿Se realizó laparotomía exploratoria?",
+            "description": "Indicador binario que documenta si se realizó laparotomía exploratoria (cirugía abdominal abierta para inspección intraabdominal, biopsia o estadificación) como parte de la evaluación del tumor primario o estudio diagnóstico en tumores sólidos abdominales/pélvicos."
+        },
+        {
+            "name": "surg_invasion",
+            "type": "varchar(255)",
+            "label": "Invasión",
+            "description": "Campo de casillas de verificación de selección múltiple que documenta patrones específicos de invasión microvascular identificados en el espécimen de patología quirúrgica (linfática, perineural, venosa)."
+        },
+        {
+            "name": "surg_tumor_budding",
+            "type": "varchar(255)",
+            "label": "Brotación tumoral",
+            "description": "Campo de selección única que documenta el grado de brotación tumoral en el frente invasivo según guías consenso ITBCC 2016 del informe de patología quirúrgica, usando sistema refinado de 4 niveles (Bd0-Bd3) para cáncer colorrectal y otros cánceres epiteliales."
+        },
+        {
+            "name": "surg_pt",
+            "type": "varchar(255)",
+            "label": "Categoría pT",
+            "description": "Lista de selección única que documenta categoría patológica del tumor primario (pT) del informe de patología quirúrgica, cuantificando extensión de invasión tumoral primaria a través de membrana basal hacia tejidos circundantes."
+        },
+        {
+            "name": "surg_pn",
+            "type": "varchar(255)",
+            "label": "Categoría pN",
+            "description": "Lista de selección única que documenta categoría patológica de ganglios linfáticos regionales (pN) del informe de patología quirúrgica, cuantificando número y morfología de ganglios linfáticos metastásicos examinados."
+        },
+        {
+            "name": "surg_pm",
+            "type": "varchar(255)",
+            "label": "Categoría pM",
+            "description": "Lista de selección única que documenta categoría patológica de metástasis a distancia (pM) del informe de patología quirúrgica, confirmando depósitos metastásicos distantes verificados histológicamente identificados durante resección de tumor primario."
+        },
+        {
+            "name": "surg_tnm_stage",
+            "type": "varchar(255)",
+            "label": "Estadio TNM al diagnóstico",
+            "description": "Lista de selección única que especifica el grupo completo de estadio patológico TNM determinado del informe de patología quirúrgica."
+        },
+        {
+            "name": "surg_regression_grade",
+            "type": "varchar(255)",
+            "label": "Grado de regresión (GR)",
+            "description": "Campo categórico de selección única que documenta grado de regresión tumoral en espécimen de patología quirúrgica tras tratamiento neoadyuvante."
+        },
+        {
+            "name": "surg_resection_grade",
+            "type": "varchar(255)",
+            "label": "Resección",
+            "description": "Campo categórico de selección única que documenta estado de márgenes quirúrgicos del informe de patología quirúrgica, clasificando completitud de resección tumoral primaria (R0 limpieza microscópica vs R1/R2 enfermedad residual)."
+        },
+        {
+            "name": "surg_pcr",
+            "type": "varchar(255)",
+            "label": "¿pCR hecha?",
+            "description": "Indicador binario que confirma respuesta patológica completa (pCR = ypT0/Tis ypN0) en espécimen de patología quirúrgica tras quimioterapia ± radioterapia neoadyuvante."
+        },
+        {
+            "name": "surg_type",
+            "type": "varchar(255)",
+            "label": "Tipo de cirugía",
+            "description": "Campo de selección única que especifica el procedimiento quirúrgico exacto realizado sobre el tumor primario."
+        },
+        {
+            "name": "surg_type_other",
+            "type": "varchar(255)",
+            "label": "Otro tipo de cirugía",
+            "description": "Campo de texto libre para documentar procedimientos quirúrgicos no cubiertos por opciones estandarizadas."
+        },
+        {
+            "name": "ttm_crs",
+            "type": "varchar(255)",
+            "label": "CRS",
+            "description": "Campo de selección única que documenta Puntuación de Respuesta a Quimioterapia (CRS) en especímenes omentales/ováricos de cirugía de debulking interval tras quimioterapia neoadyuvante."
+        },
+        {
+            "name": "surg_gc",
+            "type": "varchar(255)",
+            "label": "Resultado de GC tras la cirugía",
+            "description": "Indicador binario que documenta resultado patológico de Biopsia de Ganglio Centinela (BSGC) tras cirugía de tumor primario."
+        },
+        {
+            "name": "surg_rcb",
+            "type": "varchar(255)",
+            "label": "RCB",
+            "description": "Campo categórico de selección única que documenta clase de índice de Carga Tumoral Residual (RCB 0-III) en espécimen de patología quirúrgica de cáncer de mama tras quimioterapia neoadyuvante."
+        },
+        {
+            "name": "surg_adp",
+            "type": "varchar(255)",
+            "label": "ADP (número de ganglios identificados)",
+            "description": "Número entero que documenta el número total de ganglios linfáticos axilares examinados e identificados patológicamente en el espécimen de patología quirúrgica."
+        },
+        {
+            "name": "surg_adp_invaded",
+            "type": "varchar(255)",
+            "label": "ADP invadidos (número de ganglios invadidos)",
+            "description": "Número entero que cuantifica el número exacto de ganglios linfáticos axilares confirmados patológicamente como metastásicos."
+        }
+    ]
+  }
+]

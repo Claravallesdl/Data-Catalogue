@@ -1,0 +1,547 @@
+[
+  {
+    "name": "antineoplasic_therapy",
+    "columns": [
+        {
+            "name": "dem_sap",
+            "type": "numeric",
+            "label": "SAP/NHC",
+            "description": "Codi SAP del pacient."
+        },
+        {
+            "name": "ttm_stat",
+            "type": "varchar(255)",
+            "label": "Tractaments antineoplàsics previs",
+            "description": "Indica si el pacient ha rebut tractaments antineoplàsics sistèmics previs."
+        },
+        {
+            "name": "ttm_setting",
+            "type": "varchar(255)",
+            "label": "Configuració",
+            "description": "Escenari terapèutic del tractament dins del curs de la malaltia (p. ex. neoadjuvant, adjuvant, metastàtic)."
+        },
+        {
+            "name": "ttm_castration_status",
+            "type": "varchar(255)",
+            "label": "Estat de castració",
+            "description": "Estat de castració del pacient en el moment d’iniciar la teràpia antineoplàsica (càncer de pròstata hormonosensible vs resistent a la castració)."
+        },
+        {
+            "name": "ttm_met_line_num",
+            "type": "varchar(255)",
+            "label": "Línia metastàtica",
+            "description": "Número de línia de tractament en malaltia metastàtica."
+        },
+        {
+            "name": "ttm_intention",
+            "type": "varchar(255)",
+            "label": "Intenció",
+            "description": "Intenció terapèutica del tractament (curativa, pal·liativa, etc.)."
+        },
+        {
+            "name": "ttm_vh",
+            "type": "varchar(255)",
+            "label": "Tractament administrat al VH?",
+            "description": "Indica si el tractament es va administrar al centre VH."
+        },
+        {
+            "name": "ttm_type",
+            "type": "varchar(255)",
+            "label": "Tipus de tractament",
+            "description": "Tipus o modalitat de tractament antineoplàsic administrat."
+        },
+        {
+            "name": "ttm_setting_adj_type",
+            "type": "varchar(255)",
+            "label": "Tipus de règim adjuvant",
+            "description": "Tipus específic de règim adjuvant."
+        },
+        {
+            "name": "ttm_name",
+            "type": "varchar(255)",
+            "label": "Nom del tractament",
+            "description": "Nom del règim de tractament administrat."
+        },
+        {
+            "name": "ttm_type_name",
+            "type": "varchar(255)",
+            "label": "Tipus de règim de tractament",
+            "description": "Nom específic del subtipus de règim de tractament."
+        },
+        {
+            "name": "ttm_hemonc_type",
+            "type": "varchar(255)",
+            "label": "Tipus de règim de tractament HEMONC",
+            "description": "Codi HEMONC del règim o tractament."
+        },
+        {
+            "name": "ttm_protocol_name",
+            "type": "varchar(255)",
+            "label": "Nom del protocol/règim",
+            "description": "Nom o identificador del protocol o règim."
+        },
+        {
+            "name": "ttm_startdate",
+            "type": "date",
+            "label": "Data inici tractament",
+            "description": "Data d’inici del tractament."
+        },
+        {
+            "name": "ttm_finished",
+            "type": "varchar(255)",
+            "label": "Tractament finalitzat?",
+            "description": "Indica si el tractament s’ha completat."
+        },
+        {
+            "name": "ttm_enddate",
+            "type": "date",
+            "label": "Data finalització tractament",
+            "description": "Data de finalització del tractament."
+        },
+        {
+            "name": "ttm_num_cycles",
+            "type": "varchar(255)",
+            "label": "Nombre total de cicles",
+            "description": "Nombre total de cicles de tractament administrats."
+        },
+        {
+            "name": "ttm_bestresponse",
+            "type": "varchar(255)",
+            "label": "Millor resposta",
+            "description": "Indica el millor nivell de resposta al tractament o el grau de progressió de la malaltia durant la teràpia."
+        },
+        {
+            "name": "ttm_best_response_date",
+            "type": "date",
+            "label": "Data millor resposta",
+            "description": "Data de la millor resposta documentada."
+        },
+        {
+            "name": "ttm_endreason",
+            "type": "varchar(255)",
+            "label": "Motiu interrupció del tractament",
+            "description": "Motiu de la interrupció o finalització del tractament."
+        },
+        {
+            "name": "ttm_endreason_other",
+            "type": "varchar(255)",
+            "label": "Altre motiu interrupció del tractament",
+            "description": "Altres motius d’interrupció del tractament no especificats anteriorment."
+        },
+        {
+            "name": "ttm_pd",
+            "type": "varchar(255)",
+            "label": "Progressió malaltia?",
+            "description": "Indica si hi ha hagut progressió de la malaltia."
+        },
+        {
+            "name": "ttm_pddate",
+            "type": "date",
+            "label": "Data progressió",
+            "description": "Data de progressió de la malaltia."
+        },
+        {
+            "name": "ttm_qtrt_conc",
+            "type": "varchar(255)",
+            "label": "Quimioteràpia concurrent amb radioteràpia neoadjuvant?",
+            "description": "Indica si la radioteràpia neoadjuvant s’administra de manera concomitant amb la quimioteràpia."
+        },
+        {
+            "name": "ttm_tnt",
+            "type": "varchar(255)",
+            "label": "S’ha administrat TNT?",
+            "description": "Indica si s’ha administrat teràpia neoadjuvant total (TNT)."
+        },
+        {
+            "name": "ttm_tnt_type",
+            "type": "varchar(255)",
+            "label": "Tipus règim TNT",
+            "description": "Tipus de règim TNT administrat."
+        },
+        {
+            "name": "ttm_tnt_type_other_regimen",
+            "type": "varchar(255)",
+            "label": "Altre tipus règim TNT",
+            "description": "Altres règims TNT administrats no especificats anteriorment."
+        },
+        {
+            "name": "ttm_tnt_response",
+            "type": "varchar(255)",
+            "label": "Resposta a TNT",
+            "description": "Resposta clínica al tractament TNT."
+        },
+        {
+            "name": "ttm_ww",
+            "type": "varchar(255)",
+            "label": "El pacient ha estat sotmès a W&W (esperar i observar)?",
+            "description": "Indica si s’ha aplicat l’estratègia de “watch & wait” (esperar i observar)."
+        },
+        {
+            "name": "ttm_qt_opra_mix_startdate",
+            "type": "date",
+            "label": "Data d’inici de la quimioteràpia en règim TNT OPRA mix",
+            "description": "Data de la primera administració de quimioteràpia dins del règim TNT OPRA."
+        },
+        {
+            "name": "ttm_qt_opra_mix_enddate",
+            "type": "date",
+            "label": "Data de fi de la quimioteràpia en règim TNT OPRA mix",
+            "description": "Data de l’última administració de quimioteràpia dins del règim TNT OPRA."
+        },
+        {
+            "name": "ttm_rt",
+            "type": "varchar(255)",
+            "label": "Règim radioteràpia",
+            "description": "Tipus de règim de radioteràpia."
+        },
+        {
+            "name": "ttm_rt_dosis",
+            "type": "numeric",
+            "label": "Dosi radioteràpia",
+            "description": "Dosi de radioteràpia administrada."
+        },
+        {
+            "name": "ttm_ad_int",
+            "type": "varchar(255)",
+            "label": "Moment del tractament adjuvant",
+            "description": "Indica el moment del tractament adjuvant, segons si està previst després de la cirurgia del tumor primari o després de la cirurgia de la metàstasi (M1)."
+        },
+        {
+            "name": "ttm_qt_drug",
+            "type": "varchar(255)",
+            "label": "Tipus de tractament de quimioteràpia (FÀRMAC)",
+            "description": "Fàrmacs de quimioteràpia administrats."
+        },
+        {
+            "name": "ttm_qt_type",
+            "type": "varchar(255)",
+            "label": "Tipus de règim de quimioteràpia",
+            "description": "Classificació del règim de quimioteràpia."
+        },
+        {
+            "name": "ttm_qt_drug_other",
+            "type": "varchar(255)",
+            "label": "Altre tipus de règim de quimioteràpia",
+            "description": "Altres fàrmacs de quimioteràpia no llistats"
+        },
+        {
+            "name": "ttm_biologic",
+            "type": "varchar(255)",
+            "label": "Règim biològic",
+            "description": "Tipus de teràpia biològica administrada."
+        },
+        {
+            "name": "ttm_biologic_other",
+            "type": "varchar(255)",
+            "label": "Altre règim biològic",
+            "description": "Altres tipus de teràpia biològica no llistats."
+        },
+        {
+            "name": "ttm_vegf",
+            "type": "varchar(255)",
+            "label": "Règim VEGF",
+            "description": "Tipus de teràpia VEGF administrada"
+        },
+        {
+            "name": "ttm_vegf_other",
+            "type": "varchar(255)",
+            "label": "Altre règim VEGF",
+            "description": "Altres tipus de teràpia VEGF no llistats."
+        },
+        {
+            "name": "ttm_egfr",
+            "type": "varchar(255)",
+            "label": "Règim EGFR",
+            "description": "Tipus de teràpia EGFR administrada."
+        },
+        {
+            "name": "ttm_egfr_other",
+            "type": "varchar(255)",
+            "label": "Altre règim EGFR",
+            "description": "Altres tipus de teràpia EGFR no llistats."
+        },
+        {
+            "name": "ttm_it",
+            "type": "varchar(255)",
+            "label": "Règim d’immunoteràpia",
+            "description": "Tipus d’immunoteràpia administrada."
+        },
+        {
+            "name": "ttm_it_pd1",
+            "type": "varchar(255)",
+            "label": "Anti-PD1",
+            "description": "Tipus de teràpia PD1 administrada."
+        },
+        {
+            "name": "ttm_it_pd1_other",
+            "type": "varchar(255)",
+            "label": "Altre Anti-PD1",
+            "description": "Altres tipus de teràpia PD1 no llistats."
+        },
+        {
+            "name": "ttm_it_pdl1",
+            "type": "varchar(255)",
+            "label": "Anti-PDL1",
+            "description": "Tipus de teràpia PDL1 administrada."
+        },
+        {
+            "name": "ttm_it_pdl1_other",
+            "type": "varchar(255)",
+            "label": "Altre Anti-PDL1",
+            "description": "Altres tipus de teràpia PDL1 no llistats."
+        },
+        {
+            "name": "ttm_it_ctla4",
+            "type": "varchar(255)",
+            "label": "Anti-CTLA4",
+            "description": "Tipus de teràpia CTLA4 administrada."
+        },
+        {
+            "name": "ttm_it_ctla4_other",
+            "type": "varchar(255)",
+            "label": "Altre Anti-CTLA4",
+            "description": "Altres tipus de teràpia CTLA4 no llistats."
+        },
+        {
+            "name": "ttm_it_lag3",
+            "type": "varchar(255)",
+            "label": "Anti-LAG3",
+            "description": "Tipus de teràpia LAG3 administrada."
+        },
+        {
+            "name": "ttm_it_lag3_other",
+            "type": "varchar(255)",
+            "label": "Altre Anti-LAG3",
+            "description": "Altres tipus de teràpia LAG3 no llistats."
+        },
+        {
+            "name": "ttm_it_regimen_other",
+            "type": "varchar(255)",
+            "label": "Altres tractaments d’immunoteràpia",
+            "description": "Altres tipus d’immunoteràpia no llistats."
+        },
+        {
+            "name": "ttm_target",
+            "type": "varchar(255)",
+            "label": "Règim dirigit",
+            "description": "Tipus de teràpia dirigida administrada."
+        },
+        {
+            "name": "ttm_target_braf",
+            "type": "varchar(255)",
+            "label": "Inhibidor de BRAF",
+            "description": "Tipus de teràpia BRAF administrada."
+        },
+        {
+            "name": "ttm_target_braf_other",
+            "type": "varchar(255)",
+            "label": "Altre inhibidor de BRAF",
+            "description": "Altres tipus de teràpia BRAF no llistats."
+        },
+        {
+            "name": "ttm_target_mek",
+            "type": "varchar(255)",
+            "label": "Inhibidor de MEK",
+            "description": "Tipus de teràpia MEK administrada."
+        },
+        {
+            "name": "ttm_target_mek_other",
+            "type": "varchar(255)",
+            "label": "Altre inhibidor de MEK",
+            "description": "Altres tipus de teràpia MEK no llistats."
+        },
+        {
+            "name": "ttm_target_parp",
+            "type": "varchar(255)",
+            "label": "Inhibidor DDR/PARP",
+            "description": "Tipus de teràpia DDR o PARP administrada."
+        },
+        {
+            "name": "ttm_target_parp_other",
+            "type": "varchar(255)",
+            "label": "Altre inhibidor DDR/PARP",
+            "description": "Altres tipus de teràpia DDR o PARP no llistats."
+        },
+        {
+            "name": "ttm_target_tki",
+            "type": "varchar(255)",
+            "label": "Inhibidor de TKI",
+            "description": "Tipus de teràpia TKI administrada."
+        },
+        {
+            "name": "ttm_target_tki_other",
+            "type": "varchar(255)",
+            "label": "Altre inhibidor de TKI",
+            "description": "Altres tipus de teràpia TKI no llistats"
+        },
+        {
+            "name": "ttm_target_antiher3",
+            "type": "varchar(255)",
+            "label": "Anti HER2",
+            "description": "Tipus de teràpia HER2 administrada."
+        },
+        {
+            "name": "ttm_target_antiher2_other",
+            "type": "varchar(255)",
+            "label": "Altre anti HER2",
+            "description": "Altres tipus de teràpia HER2 no llistats."
+        },
+        {
+            "name": "ttm_target_pi3k",
+            "type": "varchar(255)",
+            "label": "Inhibidor de PI3K",
+            "description": "Tipus de teràpia PI3K administrada."
+        },
+        {
+            "name": "ttm_target_pi3k_other",
+            "type": "varchar(255)",
+            "label": "Altre inhibidor de PI3K",
+            "description": "Altres tipus de teràpia PI3K no llistats."
+        },
+        {
+            "name": "ttm_target_idh",
+            "type": "varchar(255)",
+            "label": "Inhibidor de IDH",
+            "description": "Tipus de teràpia IDH administrada."
+        },
+        {
+            "name": "ttm_target_idh_other",
+            "type": "varchar(255)",
+            "label": "Altre inhibidor de IDH",
+            "description": "Altres tipus de teràpia IDH no llistats."
+        },
+        {
+            "name": "ttm_target_fgfr3",
+            "type": "varchar(255)",
+            "label": "Inhibidor de FGFR",
+            "description": "Tipus de teràpia FGFR administrada."
+        },
+        {
+            "name": "ttm_target_fgfr_other",
+            "type": "varchar(255)",
+            "label": "Altre  inhibidor de FGFR",
+            "description": "Altres tipus de teràpia FGFR no llistats."
+        },
+        {
+            "name": "ttm_target_cdk",
+            "type": "varchar(255)",
+            "label": "Inhibidor de CDK 4/6",
+            "description": "Tipus de teràpia CDK4/6 administrada."
+        },
+        {
+            "name": "ttm_target_cdk_other",
+            "type": "varchar(255)",
+            "label": "Altre inhibidor de CDK 4/6",
+            "description": "Altres tipus de teràpia CDK4/6 no llistats."
+        },
+        {
+            "name": "ttm_target_trk",
+            "type": "varchar(255)",
+            "label": "Inhibidor de TRK",
+            "description": "Tipus de teràpia TKR administrada."
+        },
+        {
+            "name": "ttm_target_trk_other",
+            "type": "varchar(255)",
+            "label": "Altre inhibidor de TRK",
+            "description": "Altres tipus de teràpia TKR no llistats."
+        },
+        {
+            "name": "ttm_target_mtor",
+            "type": "varchar(255)",
+            "label": "Inhibidor de mTOR",
+            "description": "Tipus de teràpia mTOR administrada."
+        },
+        {
+            "name": "ttm_target_mtor_other",
+            "type": "varchar(255)",
+            "label": "Altre inhibidor de mTOR",
+            "description": "Altres tipus de teràpia mTOR no llistats."
+        },
+        {
+            "name": "ttm_target_kras",
+            "type": "varchar(255)",
+            "label": "Inhibidor de KRAS",
+            "description": "Tipus de teràpia KRAS administrada."
+        },
+        {
+            "name": "ttm_target_kras_other",
+            "type": "varchar(255)",
+            "label": "Altre inhibidor de KRAS",
+            "description": "Altres tipus de teràpia KRAS no llistats."
+        },
+        {
+            "name": "ttm_target_other",
+            "type": "varchar(255)",
+            "label": "Altres teràpies dirigides",
+            "description": "Altres tipus de teràpia dirigida no llistats."
+        },
+        {
+            "name": "ttm_adc",
+            "type": "varchar(255)",
+            "label": "ADC (conjugat anticòs-fàrmac)",
+            "description": "Tractament amb conjugats anticòs-fàrmac administrat."
+        },
+        {
+            "name": "ttm_adc_other",
+            "type": "varchar(255)",
+            "label": "Altre ADC",
+            "description": "Altres tipus de conjugats anticòs-fàrmac no llistats."
+        },
+        {
+            "name": "ttm_ht",
+            "type": "varchar(255)",
+            "label": "Tipus d’hormonoteràpia",
+            "description": "Fàrmacs de teràpia hormonal administrats."
+        },
+        {
+            "name": "ttm_ht_other",
+            "type": "varchar(255)",
+            "label": "Altre tipus d’hormonoteràpia",
+            "description": "Altres tipus de teràpia hormonal no llistats."
+        },
+        {
+            "name": "ttm_ht_switch",
+            "type": "varchar(255)",
+            "label": "Canvi d’hormonoteràpia?",
+            "description": "Indica si hi ha hagut canvi de teràpia hormonal."
+        },
+        {
+            "name": "ttm_ct_name",
+            "type": "varchar(255)",
+            "label": "Nom assaig clínic",
+            "description": "Nom de l’assaig clínic."
+        },
+        {
+            "name": "ttm_ct_mol_match",
+            "type": "varchar(255)",
+            "label": "Assaig clínic amb correspondència molecular?",
+            "description": "Indica si l’assaig clínic és d’aparellament molecular."
+        },
+        {
+            "name": "ttm_nct_code",
+            "type": "varchar(255)",
+            "label": "Codi NCT assaig clínic",
+            "description": "Identificador de l’assaig clínic (codi NCT)."
+        },
+        {
+            "name": "ttm_ct_drug",
+            "type": "varchar(255)",
+            "label": "Règim/fàrmacs de l’assaig clínic",
+            "description": "Fàrmacs o règim utilitzats en l’assaig clínic."
+        },
+        {
+            "name": "ttm_ct_masking",
+            "type": "varchar(255)",
+            "label": "Assaig clínic – Enmascarament",
+            "description": "Indica si l’assaig clínic és enmascarat (cec) i, si s'escau, el nivell d'enmascarament"
+        },
+        {
+            "name": "ttm_ct_drug_mechanism",
+            "type": "varchar(255)",
+            "label": "Mecanisme del fàrmac en l’assaig clínic",
+            "description": "Indica el mecanisme d’acció del fàrmac en investigació utilitzat en l’assaig clínic."
+        }
+    ]
+  }
+]
